@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package project.hms;
 
-import java.awt.Dimension;
 import project.hms.panels.LoginPanel;
 import project.hms.panels.DashboardPanel;
 
@@ -12,20 +7,17 @@ public class MainFrame extends javax.swing.JFrame {
     
     private LoginPanel loginPanel;
     private DashboardPanel dashboardPanel;
-    
     public MainFrame() {
     initComponents();
 
     loginPanel = new LoginPanel(this);
-    loginPanel.setBounds(50, 50, 953, 451);
-    loginPanel.setBackground(java.awt.Color.gray);
+    loginPanel.setBounds(0, 0, 1280, 720);
     add(loginPanel);
     
     dashboardPanel = new DashboardPanel(this);
-    dashboardPanel.setBounds(0,0, 953, 451);
-    dashboardPanel.setBackground(java.awt.Color.gray);
+    dashboardPanel.setBounds(0,0, 1280, 720);
+    dashboardPanel.setBackground(java.awt.Color.pink); // for debugging purpose
     add(dashboardPanel);
-
     loginPanel.setVisible(true);
     dashboardPanel.setVisible(false);
 }
@@ -50,16 +42,19 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setName("MainFrame"); // NOI18N
+        setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1085, Short.MAX_VALUE)
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,6 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
+                
             }
         });
     }

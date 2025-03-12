@@ -1,3 +1,4 @@
+project\hms\panels\MainMenuList.class
 project\hms\MainFrame.class
 project\hms\models\PatientData.class
 project\hms\panels\LoginPanel$3.class
@@ -9,3 +10,5 @@ project\hms\panels\LoginPanel$2.class
 project\hms\panels\LoginPanel.class
 project\hms\MainFrame$1.class
 project\hms\panels\LoginPanel$1.class
+project\hms\panels\PatientRecord$1.class
+project\hms\panels\PatientRecord.class

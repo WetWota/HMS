@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package project.hms.panels;
 
 import project.hms.MainFrame;
@@ -21,28 +17,45 @@ public class DashboardPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        patientData1 = new project.hms.models.PatientData();
         mainMenuPanel1 = new project.hms.panels.MainMenuPanel();
+        mainMenuList1 = new project.hms.panels.MainMenuList();
+        patientRecord1 = new project.hms.panels.PatientRecord();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(mainMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(884, Short.MAX_VALUE))
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout mainMenuPanel1Layout = new javax.swing.GroupLayout(mainMenuPanel1);
+        mainMenuPanel1.setLayout(mainMenuPanel1Layout);
+        mainMenuPanel1Layout.setHorizontalGroup(
+            mainMenuPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(mainMenuList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(mainMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+        mainMenuPanel1Layout.setVerticalGroup(
+            mainMenuPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuPanel1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(mainMenuList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(400, Short.MAX_VALUE))
         );
+
+        add(mainMenuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(patientRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Nathan\\Desktop\\Code\\Github\\commission\\HMS\\src\\main\\resource\\images\\zomboid.png")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 4, 952, 710));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private project.hms.panels.MainMenuList mainMenuList1;
     private project.hms.panels.MainMenuPanel mainMenuPanel1;
+    private project.hms.models.PatientData patientData1;
+    private project.hms.panels.PatientRecord patientRecord1;
     // End of variables declaration//GEN-END:variables
 }
