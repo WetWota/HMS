@@ -17,14 +17,11 @@ public class DashboardPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        patientData1 = new project.hms.models.PatientData();
         mainMenuPanel1 = new project.hms.panels.MainMenuPanel();
         mainMenuList1 = new project.hms.panels.MainMenuList();
         patientRecord1 = new project.hms.panels.PatientRecord();
-        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout mainMenuPanel1Layout = new javax.swing.GroupLayout(mainMenuPanel1);
         mainMenuPanel1.setLayout(mainMenuPanel1Layout);
@@ -43,19 +40,29 @@ public class DashboardPanel extends javax.swing.JPanel {
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
-        add(mainMenuPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        add(patientRecord1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Nathan\\Desktop\\Code\\Github\\commission\\HMS\\src\\main\\resource\\images\\zomboid.png")); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 4, 952, 710));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(patientRecord1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(patientRecord1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private project.hms.panels.MainMenuList mainMenuList1;
     private project.hms.panels.MainMenuPanel mainMenuPanel1;
-    private project.hms.models.PatientData patientData1;
     private project.hms.panels.PatientRecord patientRecord1;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,7 +14,7 @@ public class AuthSystem {
             reader.readNext(); // Skip header row
 
             while ((nextLine = reader.readNext()) != null) {
-                String accountID = nextLine[0];
+                int accountID = Integer.parseInt(nextLine[0]);
                 String firstName = nextLine[1];
                 String lastName = nextLine[2];
                 String hashedPass = nextLine[3];
