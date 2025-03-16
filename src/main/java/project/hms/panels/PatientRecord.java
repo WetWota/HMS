@@ -4,18 +4,17 @@
  */
 package project.hms.panels;
 
+import java.awt.Dimension;
 import project.hms.models.PatientData;
 import project.hms.services.PatientRecordService;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class PatientRecord extends javax.swing.JPanel {
     private PatientRecordService patientRecordService = new PatientRecordService();
     
     public PatientRecord() {
         initComponents();
-        
+        setPreferredSize(new Dimension(900, 650));
         patientIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameField.requestFocus();
@@ -62,10 +61,10 @@ public class PatientRecord extends javax.swing.JPanel {
         addressField = new javax.swing.JTextField();
         contactNumField = new javax.swing.JTextField();
         bloodGroupField = new javax.swing.JTextField();
-        searchBTN = new javax.swing.JToggleButton();
+        searchPatientBTN = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        searchIdField = new javax.swing.JTextField();
+        searchPatientIdField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -106,10 +105,10 @@ public class PatientRecord extends javax.swing.JPanel {
 
         bloodGroupField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        searchBTN.setText("Search");
-        searchBTN.addActionListener(new java.awt.event.ActionListener() {
+        searchPatientBTN.setText("Search");
+        searchPatientBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBTNActionPerformed(evt);
+                searchPatientBTNActionPerformed(evt);
             }
         });
 
@@ -117,7 +116,7 @@ public class PatientRecord extends javax.swing.JPanel {
 
         jButton2.setText("Delete");
 
-        searchIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchPatientIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -163,9 +162,9 @@ public class PatientRecord extends javax.swing.JPanel {
                         .addGap(104, 104, 104)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(searchBTN)))
+                        .addComponent(searchPatientBTN)))
                 .addContainerGap(377, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -173,8 +172,8 @@ public class PatientRecord extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBTN)
+                    .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchPatientBTN)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -208,14 +207,14 @@ public class PatientRecord extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBTNActionPerformed
+    private void searchPatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPatientBTNActionPerformed
         handleSearch();
-    }//GEN-LAST:event_searchBTNActionPerformed
+    }//GEN-LAST:event_searchPatientBTNActionPerformed
 
     
     
     private void handleSearch(){
-        int patientId = Integer.parseInt(searchIdField.getText().trim());
+        int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
         PatientData patientData = patientRecordService.searchPatientRecord(patientId);
         patientIdField.setText(String.valueOf(patientData.getPatientID()));
         nameField.setText(patientData.getName());
@@ -223,6 +222,15 @@ public class PatientRecord extends javax.swing.JPanel {
         addressField.setText(patientData.getAddress());
         contactNumField.setText(patientData.getContactNum());
         bloodGroupField.setText(patientData.getBloodGroup());
+    }
+    
+    private void clearTextField(){
+        patientIdField.setText("");
+        nameField.setText("");
+        sexField.setText("");
+        addressField.setText("");
+        contactNumField.setText("");
+        bloodGroupField.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -240,8 +248,8 @@ public class PatientRecord extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField nameField;
     private javax.swing.JTextField patientIdField;
-    private javax.swing.JToggleButton searchBTN;
-    private javax.swing.JTextField searchIdField;
+    private javax.swing.JToggleButton searchPatientBTN;
+    private javax.swing.JTextField searchPatientIdField;
     private javax.swing.JTextField sexField;
     // End of variables declaration//GEN-END:variables
 }

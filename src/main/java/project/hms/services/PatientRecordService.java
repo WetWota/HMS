@@ -36,11 +36,12 @@ public class PatientRecordService {
                     );
                     return patientData;
                 }
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        return null;
+        PatientData patientData = new PatientData(0,null,'\0',null,null,null);
+        return patientData;
     }
 }

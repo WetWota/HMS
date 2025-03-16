@@ -1,11 +1,19 @@
 package project.hms.panels;
 
+import java.awt.BorderLayout;
 import project.hms.MainFrame;
+import project.hms.utils.CenterPanelManager;
 
 public class DashboardPanel extends javax.swing.JPanel {
-
+    private CenterPanelManager centerPanelManager;
+    
+    
     public DashboardPanel(MainFrame frame) {
         initComponents();
+        centerPanelManager = new CenterPanelManager();
+        CenterPanel.setLayout(new BorderLayout());
+        CenterPanel.add(centerPanelManager, BorderLayout.CENTER);
+        mainMenuList.setDashboardPanel(this);
     }
 
     /**
@@ -17,27 +25,38 @@ public class DashboardPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainMenuPanel1 = new project.hms.panels.MainMenuPanel();
-        mainMenuList1 = new project.hms.panels.MainMenuList();
-        patientRecord1 = new project.hms.panels.PatientRecord();
+        mainMenuPanel = new project.hms.panels.MainMenuPanel();
+        mainMenuList = new project.hms.panels.MainMenuList();
+        CenterPanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        javax.swing.GroupLayout mainMenuPanel1Layout = new javax.swing.GroupLayout(mainMenuPanel1);
-        mainMenuPanel1.setLayout(mainMenuPanel1Layout);
-        mainMenuPanel1Layout.setHorizontalGroup(
-            mainMenuPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainMenuPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout mainMenuPanelLayout = new javax.swing.GroupLayout(mainMenuPanel);
+        mainMenuPanel.setLayout(mainMenuPanelLayout);
+        mainMenuPanelLayout.setHorizontalGroup(
+            mainMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuPanelLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(mainMenuList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainMenuList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(72, Short.MAX_VALUE))
         );
-        mainMenuPanel1Layout.setVerticalGroup(
-            mainMenuPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainMenuPanel1Layout.createSequentialGroup()
+        mainMenuPanelLayout.setVerticalGroup(
+            mainMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainMenuPanelLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(mainMenuList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainMenuList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(400, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout CenterPanelLayout = new javax.swing.GroupLayout(CenterPanel);
+        CenterPanel.setLayout(CenterPanelLayout);
+        CenterPanelLayout.setHorizontalGroup(
+            CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 934, Short.MAX_VALUE)
+        );
+        CenterPanelLayout.setVerticalGroup(
+            CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -45,24 +64,35 @@ public class DashboardPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(mainMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addComponent(patientRecord1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(CenterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainMenuPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(patientRecord1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
+                .addComponent(CenterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
+    public void switchPanel(String panelName) {
+        if (centerPanelManager != null) {
+            centerPanelManager.showPanel(panelName);
+        } else {
+            System.err.println("centerPanelManager is NULL! Fix initialization.");
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private project.hms.panels.MainMenuList mainMenuList1;
-    private project.hms.panels.MainMenuPanel mainMenuPanel1;
-    private project.hms.panels.PatientRecord patientRecord1;
+    private javax.swing.JPanel CenterPanel;
+    private project.hms.panels.MainMenuList mainMenuList;
+    private project.hms.panels.MainMenuPanel mainMenuPanel;
     // End of variables declaration//GEN-END:variables
 }

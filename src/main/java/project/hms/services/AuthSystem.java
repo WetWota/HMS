@@ -21,7 +21,7 @@ public class AuthSystem {
                 String role = nextLine[4];
                 String Username = firstName + " " + lastName;
                 
-                if (Username.equals(username) && BCrypt.checkpw(password, hashedPass)) {
+                if (Username.toLowerCase().equals(username.toLowerCase()) && BCrypt.checkpw(password, hashedPass)) {
                     return true;
                 }
             }

@@ -1,0 +1,6 @@
+StaffID,Name,Sex,Position,ContactNumber,Email
+1,"John Doe",M,"Doctor","123-456-7890","john.doe@example.com"
+2,"Jane Smith",F,"Nurse","987-654-3210","jane.smith@example.com"
+3,"Robert Brown",M,"Receptionist","456-789-0123","robert.brown@example.com"
+4,"Emily Johnson",F,"Pharmacist","321-654-0987","emily.johnson@example.com"
+5,"Michael Lee",M,"Surgeon","789-123-4560","michael.lee@example.com"

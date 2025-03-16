@@ -4,11 +4,12 @@ import project.hms.panels.LoginPanel;
 import project.hms.panels.DashboardPanel;
 
 public class MainFrame extends javax.swing.JFrame {
-    
     private LoginPanel loginPanel;
     private DashboardPanel dashboardPanel;
+    
     public MainFrame() {
     initComponents();
+    dashboardPanel = new DashboardPanel(this);
 
     loginPanel = new LoginPanel(this);
     loginPanel.setBounds(0, 0, 1280, 720);
