@@ -44,41 +44,44 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="478" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="passwordLabel" max="32767" attributes="0"/>
-                                      <Component id="usernameLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="usernameField" max="32767" attributes="0"/>
-                                      <Component id="passwordField" min="-2" pref="247" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="599" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="Logo" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="statusLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="121" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="Logo" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="statusLabel" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="478" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="passwordLabel" max="32767" attributes="0"/>
+                                          <Component id="usernameLabel" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="loginBTN" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="usernameField" max="32767" attributes="0"/>
+                                          <Component id="passwordField" min="-2" pref="247" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="loginBTN" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="481" max="32767" attributes="0"/>
+                          <EmptySpace pref="474" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="signupBTN" min="-2" pref="99" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="558" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -101,7 +104,9 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="loginBTN" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="281" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="signupBTN" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="220" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -149,6 +154,14 @@
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ImageIcon logo = new ImageIcon(getClass().getClassLoader().getResource(&quot;images/logo.png&quot;));&#xa;&#xa;    int width = 150;&#xa;    int height = 150; &#xa;Image scaledLogo = logo.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="signupBTN">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Sign-up"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupBTNActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

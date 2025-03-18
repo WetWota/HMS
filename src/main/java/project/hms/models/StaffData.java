@@ -24,4 +24,11 @@ public class StaffData {
     public String getPosition() { return position; }
     public String getContactNum() { return contactNum; }
     public String getEmail() { return email; }
+    
+    public void setStaffID(){ this.staffID = staffID; }
+    public void setName() { this.name = name; }
+    public void setSex() { this.sex = sex; }
+    public void setPosition() { this.position = position; }
+    public void setContactNum() { this.contactNum = contactNum; }
+    public void setEmail() { this.email = email; }
 }

@@ -2,8 +2,11 @@ package project.hms.services;
 
 import java.io.FileReader;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
+import java.io.FileWriter;
 import java.nio.file.Paths;
 import org.mindrot.jbcrypt.BCrypt;
+import project.hms.models.AccountData;
 
 public class AuthSystem {
     private static final String CSV_FILE = Paths.get("csv", "accountData.csv").toString();
@@ -25,6 +28,26 @@ public class AuthSystem {
                     return true;
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public static boolean registerAccount(AccountData accountData) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
+            String hashedPassword = BCrypt.hashpw(accountData.getPassword(), BCrypt.gensalt());
+
+            String[] newAccount = {
+                String.valueOf(accountData.getAccountID()),
+                accountData.getFirstName(),
+                accountData.getLastName(),
+                hashedPassword,
+                accountData.getRole()
+            };
+
+            writer.writeNext(newAccount);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }

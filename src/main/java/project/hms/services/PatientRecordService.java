@@ -2,7 +2,9 @@
 package project.hms.services;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.nio.file.Paths;
 
 import project.hms.models.PatientData;
@@ -43,5 +45,24 @@ public class PatientRecordService {
         }
         PatientData patientData = new PatientData(0,null,'\0',null,null,null);
         return patientData;
+    }
+    
+    public boolean writePatientRecord(PatientData patientData) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
+            String[] record = {
+                String.valueOf(patientData.getPatientID()),
+                patientData.getName(),
+                String.valueOf(patientData.getSex()),
+                patientData.getAddress(),
+                patientData.getContactNum(),
+                patientData.getBloodGroup()
+            };
+
+            writer.writeNext(record);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

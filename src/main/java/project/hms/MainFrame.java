@@ -2,10 +2,12 @@ package project.hms;
 
 import project.hms.panels.LoginPanel;
 import project.hms.panels.DashboardPanel;
+import project.hms.panels.SignupPanel;
 
 public class MainFrame extends javax.swing.JFrame {
     private LoginPanel loginPanel;
     private DashboardPanel dashboardPanel;
+    private SignupPanel signupPanel;
     
     public MainFrame() {
     initComponents();
@@ -19,18 +21,30 @@ public class MainFrame extends javax.swing.JFrame {
     dashboardPanel.setBounds(0,0, 1280, 720);
     dashboardPanel.setBackground(java.awt.Color.pink); // for debugging purpose
     add(dashboardPanel);
+    
+    signupPanel = new SignupPanel(this);
+    signupPanel.setBounds(0,0, 1280, 720);
+    add(signupPanel);
+    
     loginPanel.setVisible(true);
     dashboardPanel.setVisible(false);
+    signupPanel.setVisible(false);
 }
-
     public void showDashboard() {
         loginPanel.setVisible(false);
+        signupPanel.setVisible(false);
         dashboardPanel.setVisible(true);
     }
 
     public void showLogin() {
         dashboardPanel.setVisible(false);
+        signupPanel.setVisible(false);
         loginPanel.setVisible(true);
+    }
+    public void showSignup(){
+        loginPanel.setVisible(false);
+        dashboardPanel.setVisible(false);
+        signupPanel.setVisible(true);
     }
     
     /**
