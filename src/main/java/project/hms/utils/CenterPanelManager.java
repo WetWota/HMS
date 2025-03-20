@@ -17,8 +17,8 @@ public class CenterPanelManager extends JPanel {
 
         // Add different panels to contentPanel (NOT this)
         contentPanel.add(new PatientRecord(), "PatientRecords");
-        /*
         contentPanel.add(new BookingPanel(), "Booking");
+        /*
         contentPanel.add(new SchedulePanel(), "Schedule");
         */
         contentPanel.add(new StaffRecord(), "StaffRecords");

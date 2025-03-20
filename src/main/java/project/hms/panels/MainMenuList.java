@@ -22,8 +22,8 @@ public class MainMenuList extends JPanel{
         buttons[4] = new JButton("Logout");
         
         buttons[0].addActionListener(e -> dashboardPanel.switchPanel("PatientRecords"));
-        /*
         buttons[1].addActionListener(e -> dashboardPanel.switchPanel("Booking"));
+        /*
         buttons[2].addActionListener(e -> dashboardPanel.switchPanel("Schedule"));
 */
         buttons[3].addActionListener(e -> dashboardPanel.switchPanel("StaffRecords"));

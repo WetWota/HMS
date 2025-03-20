@@ -31,11 +31,14 @@ public class BookingData {
     public int getBookingID(){ return bookingID; }
     public int getPatientID() { return patientID; }
     public int getStaffID() { return staffID; }
-    public LocalDate getAppointmentData() { return appointmentDate; }
+    public LocalDate getAppointmentDate() { return appointmentDate; }
     public LocalTime getAppointmentTime() { return appointmentTime; }
-    public String status() { return status; }
+    public String getStatus() { return status; }
     
     public void setBookingID() { this.bookingID = bookingID; }
     public void setPatientID() { this.patientID = patientID; }
     public void setStaffID() { this.staffID = staffID; }
+    public void setAppointmentDate() { this.appointmentDate = appointmentDate; }
+    public void setAppointmentTime() { this.appointmentTime = appointmentTime; }
+    public void setStatus() {this.status = status; }
 }
