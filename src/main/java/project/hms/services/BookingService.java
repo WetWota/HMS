@@ -1,7 +1,9 @@
 package project.hms.services;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -41,5 +43,45 @@ public class BookingService {
         }
         BookingData bookData = new BookingData(0,0,0,null,null,null);
         return bookData;
+    }
+    
+    public boolean BookAppointment(BookingData bookingData){
+        
+        int lastBookingID = 0;
+
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                if (nextLine.length > 0) {
+                    try {
+                        lastBookingID = Integer.parseInt(nextLine[0]);
+                    } catch (NumberFormatException ignored) {
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Increment the last account ID
+        int newBookingID = lastBookingID + 1;
+        
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
+            String[] book = {
+                String.valueOf(newBookingID),
+                String.valueOf(bookingData.getPatientID()),
+                String.valueOf(bookingData.getStaffID()),
+                String.valueOf(bookingData.getAppointmentDate()),
+                String.valueOf(bookingData.getAppointmentTime()),
+                bookingData.getStatus()
+            };
+            System.out.println("Book");
+
+            writer.writeNext(book);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

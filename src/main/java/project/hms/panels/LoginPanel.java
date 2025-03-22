@@ -3,9 +3,11 @@ package project.hms.panels;
 import java.awt.Image;
 import project.hms.MainFrame;
 import project.hms.services.AuthSystem;
+import project.hms.utils.SessionManager;
 import javax.swing.ImageIcon;
 
 public class LoginPanel extends javax.swing.JPanel {
+    private final AuthSystem authSystem = new AuthSystem();
     private MainFrame parentFrame;
     
     public LoginPanel(MainFrame frame) {
@@ -168,6 +170,8 @@ public class LoginPanel extends javax.swing.JPanel {
         if (AuthSystem.authenticate(username, password)) {
                 usernameField.setText("");
                 passwordField.setText("");
+                String role = authSystem.getRole(username);
+                SessionManager.setUser(0, role, username);
                 System.out.println("Login successful");
                 parentFrame.showDashboard();
             } else {

@@ -14,7 +14,7 @@ public class CenterPanelManager extends JPanel {
 
         setLayout(new BorderLayout());
         add(contentPanel, BorderLayout.CENTER);
-
+                
         contentPanel.add(new PatientRecord(), "PatientRecords");
         contentPanel.add(new BookingPanel(), "Booking");
         /*

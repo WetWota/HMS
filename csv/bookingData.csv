@@ -1,1 +1,7 @@
-BookingID,PatientID,DoctorID,AppointmentDate,AppointmentTime,Status
+BookingID,PatientID,DoctorID,AppointmentDate,AppointmentTime, Status
+"1","1","1","2001-09-11","01:00","yes"
+"1","1","1","2001-09-11","01:00","yes"
+"2","2","1","2001-09-11","01:00","yes"
+"3","1","1","2001-09-11","01:00","yes"
+"4","1","1","2001-09-11","01:00","yes"
+"5","1","1","2001-09-11","12:00","yes"

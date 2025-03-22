@@ -15,7 +15,6 @@ public class AuthSystem {
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] nextLine;
             reader.readNext(); // Skip header row
-
             while ((nextLine = reader.readNext()) != null) {
                 int accountID = Integer.parseInt(nextLine[0]);
                 String Username = nextLine[1];
@@ -50,12 +49,8 @@ public class AuthSystem {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // Increment the last account ID
         int newAccountID = lastAccountID + 1;
-        
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
-
             String[] newAccount = {
                 String.valueOf(newAccountID),
                 accountData.getUsername(),
@@ -70,6 +65,21 @@ public class AuthSystem {
             e.printStackTrace();
         }
         return false;
+    }
+    public String getRole(String username){
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))){
+            String[] nextLine;
+            boolean found = false;
+            while((nextLine = reader.readNext()) != null || !found){
+                if(username == nextLine[1]){
+                    String role = nextLine[5];
+                    return role;
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }
 

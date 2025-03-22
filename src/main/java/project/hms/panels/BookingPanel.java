@@ -2,14 +2,22 @@ package project.hms.panels;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
+
+import project.hms.models.BookingData;
+import project.hms.models.PatientData;
+import project.hms.models.StaffData;
+import project.hms.services.BookingService;
+import project.hms.services.PatientRecordService;
+import project.hms.services.StaffRecordService;
+import project.hms.utils.SessionManager;
 
 public class BookingPanel extends javax.swing.JPanel {
+    
+private final BookingService bookingService = new BookingService();
+private final PatientRecordService patientRecordService = new PatientRecordService();
+private final StaffRecordService staffRecordService = new StaffRecordService();
 
-    /**
-     * Creates new form BookingPanel
-     */
     public BookingPanel() {
         initComponents();
     }
@@ -33,7 +41,10 @@ public class BookingPanel extends javax.swing.JPanel {
         yearField = new javax.swing.JTextField();
         hourField = new javax.swing.JTextField();
         statusField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
 
+        usernameLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         usernameLabel2.setText("Appointment Sched:");
 
         signupBTN.setText("Book");
@@ -43,20 +54,27 @@ public class BookingPanel extends javax.swing.JPanel {
             }
         });
 
+        usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         usernameLabel.setText("Staff ID:");
 
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         passwordLabel.setText("status:");
 
+        usernameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         usernameLabel1.setText("Patient ID:");
+
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usernameLabel1, javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,10 +93,14 @@ public class BookingPanel extends javax.swing.JPanel {
                         .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(signupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(316, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(254, 254, 254))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(130, 130, 130)
+                            .addComponent(signupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,33 +126,62 @@ public class BookingPanel extends javax.swing.JPanel {
                     .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(signupBTN)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void signupBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBTNActionPerformed
-        
+        handleBook();
     }//GEN-LAST:event_signupBTNActionPerformed
     private void handleBook(){
-        int patientID = Integer.parseInt(patientIdField.getText());
-        int staffID = Integer.parseInt(staffIdField.getText());
-        int month = Integer.parseInt(monthField.getText());
-        int day = Integer.parseInt(dayField.getText());
-        int year = Integer.parseInt(yearField.getText());
+        int patientID = Integer.parseInt(patientIdField.getText().trim());
+        int staffID = Integer.parseInt(staffIdField.getText().trim());
+        int month = Integer.parseInt(monthField.getText().trim());
+        int day = Integer.parseInt(dayField.getText().trim());
+        int year = Integer.parseInt(yearField.getText().trim());
         LocalDate date = LocalDate.of(year, month, day);
-        LocalTime time = LocalTime.parse(hourField.getText());
+        int hour = Integer.parseInt(hourField.getText().trim());
+
+        String formattedTime = String.format("%02d:00", hour);
+        LocalTime time = LocalTime.parse(formattedTime);
         String status = statusField.getText();
+        
+        BookingData bookingData = new BookingData(0, patientID, staffID, date, time, status);
+        boolean bookAppointment = bookingService.BookAppointment(bookingData);
+        clearField();
+        
+        PatientData searchPatient = patientRecordService.searchPatientRecord(patientID);
+        StaffData searchStaff = staffRecordService.searchStaffRecord(staffID);
+        textArea.setText("Patient: " + searchPatient.getName() +
+                        "\nStaff: " + searchStaff.getName() +
+                        "\nAppointment at: " + String.valueOf(date) + " " + String.valueOf(time) +
+                        "\nAppointed by: " + SessionManager.getUsername()
+        );
+    }
+    
+    private void clearField(){
+        patientIdField.setText("");
+        staffIdField.setText("");
+        monthField.setText("");
+        dayField.setText("");
+        yearField.setText("");
+        hourField.setText("");
+        statusField.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField dayField;
     private javax.swing.JTextField hourField;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField monthField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTextField patientIdField;
     private javax.swing.JButton signupBTN;
     private javax.swing.JTextField staffIdField;
     private javax.swing.JTextField statusField;
+    private javax.swing.JTextArea textArea;
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JLabel usernameLabel1;
     private javax.swing.JLabel usernameLabel2;
