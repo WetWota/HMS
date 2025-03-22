@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package project.hms.panels;
 
 import java.util.Arrays;
@@ -9,18 +5,9 @@ import project.hms.MainFrame;
 import project.hms.models.AccountData;
 import project.hms.services.AuthSystem;
 
-/**
- *
- * @author lance
- */
 public class SignupPanel extends javax.swing.JPanel {
     
     private MainFrame parentFrame;
-    private int[] validId = {54321,12345,91111,71665,41589};
-    private String[] role = {"user","user","admin","user","admin"};
-    /**
-     * Creates new form SignupPanel
-     */
     public SignupPanel(MainFrame frame) {
         this.parentFrame = frame;
         
@@ -35,20 +22,22 @@ public class SignupPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         passwordField1 = new javax.swing.JPasswordField();
         firstNameField = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         statusLabel = new javax.swing.JLabel();
-        usernameLabel1 = new javax.swing.JLabel();
-        accountIdField = new javax.swing.JTextField();
         passwordField2 = new javax.swing.JPasswordField();
         passwordLabel1 = new javax.swing.JLabel();
         lastNameField = new javax.swing.JTextField();
         usernameLabel2 = new javax.swing.JLabel();
         signupBTN = new javax.swing.JButton();
         backBTN = new javax.swing.JButton();
+        usernameLabel3 = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
+        roleMenu = new javax.swing.JComboBox<>();
 
         passwordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,14 +56,6 @@ public class SignupPanel extends javax.swing.JPanel {
         passwordLabel.setText("Password:");
 
         statusLabel.setText("ErrorLabel");
-
-        usernameLabel1.setText("Account ID:");
-
-        accountIdField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountIdFieldActionPerformed(evt);
-            }
-        });
 
         passwordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,74 +87,88 @@ public class SignupPanel extends javax.swing.JPanel {
             }
         });
 
+        usernameLabel3.setText("Username:");
+
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameFieldActionPerformed(evt);
+            }
+        });
+
+        roleMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(statusLabel)
-                    .addComponent(signupBTN))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(238, 238, 238)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(backBTN)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(310, 310, 310)
+                        .addComponent(signupBTN))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(239, 239, 239)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(passwordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64)
-                                .addComponent(passwordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                                .addComponent(backBTN)
+                                .addGap(28, 28, 28)
+                                .addComponent(statusLabel))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(usernameLabel)
-                                    .addComponent(usernameLabel1)
-                                    .addComponent(usernameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(64, 64, 64)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(firstNameField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(accountIdField)
-                                    .addComponent(lastNameField, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(64, 64, 64)
-                                .addComponent(passwordField1)))
-                        .addGap(246, 246, 246))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(2, 2, 2)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(usernameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(passwordLabel1)
+                                            .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(usernameLabel3))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(roleMenu, 0, 100, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(passwordField2)
+                                        .addComponent(firstNameField)
+                                        .addComponent(usernameField)
+                                        .addComponent(lastNameField)
+                                        .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))))))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(backBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(backBTN))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(statusLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(accountIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usernameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                    .addComponent(usernameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(roleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addComponent(signupBTN)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(0, 65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -185,10 +180,6 @@ public class SignupPanel extends javax.swing.JPanel {
     private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
         passwordField1.requestFocus();
     }//GEN-LAST:event_firstNameFieldActionPerformed
-
-    private void accountIdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountIdFieldActionPerformed
-        firstNameField.requestFocus();
-    }//GEN-LAST:event_accountIdFieldActionPerformed
 
     private void passwordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField2ActionPerformed
         handleSignup();
@@ -206,34 +197,22 @@ public class SignupPanel extends javax.swing.JPanel {
         parentFrame.showLogin();
     }//GEN-LAST:event_backBTNActionPerformed
 
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameFieldActionPerformed
+
     private void handleSignup(){
-        int accountID = Integer.parseInt(accountIdField.getText().trim());
+        String username = usernameField.getText();
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
+        String role = (String) roleMenu.getSelectedItem();
         if(Arrays.equals(passwordField1.getPassword(), passwordField2.getPassword())){
             String password = new String(passwordField2.getPassword());
-            boolean isValidId = false;
-            int roleIndex = -1;
-            for (int i = 0; i < validId.length; i++) {
-                if (validId[i] == accountID) {
-                    isValidId = true;
-                    roleIndex = i;
-                    break;
-                }
-            }
-            if (isValidId) {
-                // Use the role based on the account ID position
-                String accountRole = role[roleIndex];
-
-                // Create an AccountData object
-                AccountData accountData = new AccountData(accountID, firstName, lastName, password, accountRole);
-                // Here, you could proceed to add accountData to your storage, e.g., a database or a list.
+            
+                AccountData accountData = new AccountData(0, username, firstName, lastName, password, role);
                 boolean isAccountCreated = AuthSystem.registerAccount(accountData);
                 parentFrame.showLogin();
-            } else {
-                // Handle invalid account ID
-                System.out.println("Invalid account ID.");
-            }
+                
         } else {
             // Handle password mismatch
             System.out.println("Passwords do not match.");
@@ -243,7 +222,6 @@ public class SignupPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField accountIdField;
     private javax.swing.JButton backBTN;
     private javax.swing.JTextField firstNameField;
     private javax.swing.JTextField lastNameField;
@@ -251,10 +229,12 @@ public class SignupPanel extends javax.swing.JPanel {
     private javax.swing.JPasswordField passwordField2;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel passwordLabel1;
+    private javax.swing.JComboBox<String> roleMenu;
     private javax.swing.JButton signupBTN;
     private javax.swing.JLabel statusLabel;
+    private javax.swing.JTextField usernameField;
     private javax.swing.JLabel usernameLabel;
-    private javax.swing.JLabel usernameLabel1;
     private javax.swing.JLabel usernameLabel2;
+    private javax.swing.JLabel usernameLabel3;
     // End of variables declaration//GEN-END:variables
 }

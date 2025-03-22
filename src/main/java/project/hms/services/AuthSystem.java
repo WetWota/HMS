@@ -18,13 +18,12 @@ public class AuthSystem {
 
             while ((nextLine = reader.readNext()) != null) {
                 int accountID = Integer.parseInt(nextLine[0]);
-                String firstName = nextLine[1];
-                String lastName = nextLine[2];
-                String hashedPass = nextLine[3];
-                String role = nextLine[4];
-                String Username = firstName + " " + lastName;
-                
-                if (Username.toLowerCase().equals(username.toLowerCase()) && BCrypt.checkpw(password, hashedPass)) {
+                String Username = nextLine[1];
+                String firstName = nextLine[2];
+                String lastName = nextLine[3];
+                String storedPass = nextLine[4];
+                String role = nextLine[5];
+                if (Username.toLowerCase().equals(username.toLowerCase()) && password.equals(storedPass)){
                     return true;
                 }
             }
@@ -35,17 +34,36 @@ public class AuthSystem {
     }
     
     public static boolean registerAccount(AccountData accountData) {
+        
+        int lastAccountID = 0;
+
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                if (nextLine.length > 0) {
+                    try {
+                        lastAccountID = Integer.parseInt(nextLine[0]);
+                    } catch (NumberFormatException ignored) {
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Increment the last account ID
+        int newAccountID = lastAccountID + 1;
+        
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
-            String hashedPassword = BCrypt.hashpw(accountData.getPassword(), BCrypt.gensalt());
 
             String[] newAccount = {
-                String.valueOf(accountData.getAccountID()),
+                String.valueOf(newAccountID),
+                accountData.getUsername(),
                 accountData.getFirstName(),
                 accountData.getLastName(),
-                hashedPassword,
+                accountData.getPassword(),
                 accountData.getRole()
             };
-
             writer.writeNext(newAccount);
             return true;
         } catch (Exception e) {

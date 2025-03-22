@@ -1,14 +1,8 @@
 package project.hms.panels;
 
-/**
- *
- * @author Nathan
- */
-public class MainMenuPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form MainMenuPanel
-     */
+public class MainMenuPanel extends javax.swing.JPanel {
+    
     public MainMenuPanel() {
         initComponents();
     }

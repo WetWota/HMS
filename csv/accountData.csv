@@ -1,3 +1,2 @@
-"Account ID","First name","Last Name","password","role"
-"1","Kai","Danda","$2a$10$3UzSSLXX00BcAkiHswWQj.udFgBe3YZYvn4ZOCoqkbrVkybZHHPcq","yes"
-"12345","Adolf","Hitler","$2a$10$sP48cc9bGv1ZRpcNqF2ZQOQt8d81ZsBvn/EJhKacjjV/hpUxUJ/12","user"
+"Account ID", "Username","First name","Last Name","password","role"
+"1","KaiDanda","Kai","Danda","kaidanda","User"
