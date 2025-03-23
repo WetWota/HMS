@@ -166,7 +166,6 @@ public class LoginPanel extends javax.swing.JPanel {
     private void handleLogin(){
         String username = usernameField.getText().trim();
         String password = new String(passwordField.getPassword());
-        
         if (AuthSystem.authenticate(username, password)) {
                 usernameField.setText("");
                 passwordField.setText("");
@@ -178,7 +177,6 @@ public class LoginPanel extends javax.swing.JPanel {
             } else {
                 statusLabel.setText("❌ Invalid credentials");
             }
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
