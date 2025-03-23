@@ -27,7 +27,9 @@ public class DashboardPanel extends javax.swing.JPanel {
 
         mainMenuPanel = new project.hms.panels.MainMenuPanel();
         mainMenuList = new project.hms.panels.MainMenuList();
+        BackgroundPanel = new javax.swing.JPanel();
         CenterPanel = new javax.swing.JPanel();
+        background1 = new project.hms.panels.Background();
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
@@ -48,16 +50,35 @@ public class DashboardPanel extends javax.swing.JPanel {
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
+        BackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CenterPanel.setOpaque(false);
+
         javax.swing.GroupLayout CenterPanelLayout = new javax.swing.GroupLayout(CenterPanel);
         CenterPanel.setLayout(CenterPanelLayout);
         CenterPanelLayout.setHorizontalGroup(
             CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 934, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
         CenterPanelLayout.setVerticalGroup(
             CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
+
+        BackgroundPanel.add(CenterPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 570, 470));
+
+        javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
+        background1.setLayout(background1Layout);
+        background1Layout.setHorizontalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
+        );
+        background1Layout.setVerticalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 710, Short.MAX_VALUE)
+        );
+
+        BackgroundPanel.add(background1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, -6, 920, 710));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -65,19 +86,23 @@ public class DashboardPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(CenterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(976, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(353, 353, 353)
+                    .addComponent(BackgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainMenuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CenterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(BackgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -91,7 +116,9 @@ public class DashboardPanel extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BackgroundPanel;
     private javax.swing.JPanel CenterPanel;
+    private project.hms.panels.Background background1;
     private project.hms.panels.MainMenuList mainMenuList;
     private project.hms.panels.MainMenuPanel mainMenuPanel;
     // End of variables declaration//GEN-END:variables

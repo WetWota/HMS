@@ -4,6 +4,8 @@
  */
 package project.hms.panels;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import project.hms.models.StaffData;
 import project.hms.services.StaffRecordService;
 
@@ -12,6 +14,8 @@ public class StaffRecord extends javax.swing.JPanel {
     
     public StaffRecord() {
         initComponents();
+        setPreferredSize(new Dimension(900, 650));
+        setBackground(new Color(0, 0, 0, 0));
         staffIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameField.requestFocus();
@@ -151,7 +155,7 @@ public class StaffRecord extends javax.swing.JPanel {
                         .addComponent(searchStaffIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(searchBTN)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +189,7 @@ public class StaffRecord extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailField))
-                .addGap(97, 97, 97))
+                .addGap(101, 101, 101))
         );
     }// </editor-fold>//GEN-END:initComponents
 

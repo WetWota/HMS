@@ -22,7 +22,6 @@ public class SignupPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         passwordField1 = new javax.swing.JPasswordField();
         firstNameField = new javax.swing.JTextField();
@@ -126,12 +125,11 @@ public class SignupPanel extends javax.swing.JPanel {
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(roleMenu, 0, 100, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(passwordField2)
-                                        .addComponent(firstNameField)
-                                        .addComponent(usernameField)
-                                        .addComponent(lastNameField)
-                                        .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))))))
+                                    .addComponent(passwordField2)
+                                    .addComponent(firstNameField)
+                                    .addComponent(usernameField)
+                                    .addComponent(lastNameField)
+                                    .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))))
                 .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

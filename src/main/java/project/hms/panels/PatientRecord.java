@@ -1,5 +1,6 @@
 package project.hms.panels;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import project.hms.models.PatientData;
 import project.hms.services.PatientRecordService;
@@ -11,6 +12,7 @@ public class PatientRecord extends javax.swing.JPanel {
     public PatientRecord() {
         initComponents();
         setPreferredSize(new Dimension(900, 650));
+        setBackground(new Color(0, 0, 0, 0));
         patientIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameField.requestFocus();
@@ -63,7 +65,7 @@ public class PatientRecord extends javax.swing.JPanel {
         searchPatientIdField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setOpaque(false);
+        setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,7 +163,7 @@ public class PatientRecord extends javax.swing.JPanel {
                         .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(searchPatientBTN)))
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

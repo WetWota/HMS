@@ -70,8 +70,8 @@ public class AuthSystem {
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))){
             String[] nextLine;
             boolean found = false;
-            while((nextLine = reader.readNext()) != null || !found){
-                if(username == nextLine[1]){
+            while((nextLine = reader.readNext()) != null){
+                if (username.equals(nextLine[1])) {
                     String role = nextLine[5];
                     return role;
                 }

@@ -10,8 +10,12 @@ public class CenterPanelManager extends JPanel {
 
     public CenterPanelManager() {
         cardLayout = new CardLayout();
-        contentPanel = new JPanel(cardLayout);  // The actual container
+        setOpaque(false);
+        setBackground(new Color(0, 0, 0, 0));
 
+        contentPanel = new JPanel(cardLayout);
+        contentPanel.setOpaque(false);
+        contentPanel.setBackground(new Color(0, 0, 0, 0));
         setLayout(new BorderLayout());
         add(contentPanel, BorderLayout.CENTER);
                 

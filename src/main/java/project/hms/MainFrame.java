@@ -19,7 +19,6 @@ public class MainFrame extends javax.swing.JFrame {
     
     dashboardPanel = new DashboardPanel(this);
     dashboardPanel.setBounds(0,0, 1280, 720);
-    dashboardPanel.setBackground(java.awt.Color.pink); // for debugging purpose
     add(dashboardPanel);
     
     signupPanel = new SignupPanel(this);

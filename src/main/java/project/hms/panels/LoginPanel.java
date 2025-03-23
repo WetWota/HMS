@@ -171,7 +171,8 @@ public class LoginPanel extends javax.swing.JPanel {
                 usernameField.setText("");
                 passwordField.setText("");
                 String role = authSystem.getRole(username);
-                SessionManager.setUser(0, role, username);
+                SessionManager.setUser(0, username, role);
+                System.out.println(SessionManager.getAccountId() + " " + SessionManager.getUsername());
                 System.out.println("Login successful");
                 parentFrame.showDashboard();
             } else {

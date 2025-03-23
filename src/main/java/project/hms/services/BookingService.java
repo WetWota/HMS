@@ -24,7 +24,7 @@ public class BookingService {
                 LocalDate date = LocalDate.parse(nextLine[3]);
                 LocalTime time = LocalTime.parse(nextLine[4]);
                 String status = nextLine[5];
-                
+                String handler = nextLine[6];
                 if(searchId == staffID){
                     BookingData bookData = new BookingData(
                             bookingID,
@@ -32,7 +32,8 @@ public class BookingService {
                             staffID,
                             date,
                             time,
-                            status
+                            status,
+                            handler
                     );
                     return bookData;
                 }
@@ -41,7 +42,7 @@ public class BookingService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        BookingData bookData = new BookingData(0,0,0,null,null,null);
+        BookingData bookData = new BookingData(0,0,0,null,null,null,null);
         return bookData;
     }
     

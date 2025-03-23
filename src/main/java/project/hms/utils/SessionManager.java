@@ -20,4 +20,11 @@ public class SessionManager {
         username = null;
         role = null;
     }
+    
+    @Override
+    public String toString() {
+        return "ID: " + accountId +
+                ", username: " + username +
+                ", role: " + role;
+    }
 }
