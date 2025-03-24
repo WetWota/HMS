@@ -23,12 +23,12 @@ public class SignupPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        passwordField1 = new javax.swing.JPasswordField();
+        passwordField2 = new javax.swing.JPasswordField();
         firstNameField = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         statusLabel = new javax.swing.JLabel();
-        passwordField2 = new javax.swing.JPasswordField();
+        passwordField1 = new javax.swing.JPasswordField();
         passwordLabel1 = new javax.swing.JLabel();
         lastNameField = new javax.swing.JTextField();
         usernameLabel2 = new javax.swing.JLabel();
@@ -38,9 +38,9 @@ public class SignupPanel extends javax.swing.JPanel {
         usernameField = new javax.swing.JTextField();
         roleMenu = new javax.swing.JComboBox<>();
 
-        passwordField1.addActionListener(new java.awt.event.ActionListener() {
+        passwordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordField1ActionPerformed(evt);
+                passwordField2ActionPerformed(evt);
             }
         });
 
@@ -56,9 +56,9 @@ public class SignupPanel extends javax.swing.JPanel {
 
         statusLabel.setText("ErrorLabel");
 
-        passwordField2.addActionListener(new java.awt.event.ActionListener() {
+        passwordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordField2ActionPerformed(evt);
+                passwordField1ActionPerformed(evt);
             }
         });
 
@@ -125,11 +125,11 @@ public class SignupPanel extends javax.swing.JPanel {
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(roleMenu, 0, 100, Short.MAX_VALUE)
-                                    .addComponent(passwordField2)
+                                    .addComponent(passwordField1)
                                     .addComponent(firstNameField)
                                     .addComponent(usernameField)
                                     .addComponent(lastNameField)
-                                    .addComponent(passwordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))))
+                                    .addComponent(passwordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))))
                 .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -157,11 +157,11 @@ public class SignupPanel extends javax.swing.JPanel {
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(roleMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
@@ -171,20 +171,20 @@ public class SignupPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void passwordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField1ActionPerformed
-        passwordField2.requestFocus();
-    }//GEN-LAST:event_passwordField1ActionPerformed
-
-    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
-        passwordField1.requestFocus();
-    }//GEN-LAST:event_firstNameFieldActionPerformed
-
     private void passwordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField2ActionPerformed
         handleSignup();
     }//GEN-LAST:event_passwordField2ActionPerformed
 
+    private void firstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameFieldActionPerformed
+        lastNameField.requestFocus();
+    }//GEN-LAST:event_firstNameFieldActionPerformed
+
+    private void passwordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordField1ActionPerformed
+        passwordField2.requestFocus();
+    }//GEN-LAST:event_passwordField1ActionPerformed
+
     private void lastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameFieldActionPerformed
-        // TODO add your handling code here:
+        passwordField1.requestFocus();
     }//GEN-LAST:event_lastNameFieldActionPerformed
 
     private void signupBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBTNActionPerformed
@@ -196,7 +196,7 @@ public class SignupPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backBTNActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
-        // TODO add your handling code here:
+        firstNameField.requestFocus();
     }//GEN-LAST:event_usernameFieldActionPerformed
 
     private void handleSignup(){
@@ -204,20 +204,26 @@ public class SignupPanel extends javax.swing.JPanel {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String role = (String) roleMenu.getSelectedItem();
-        if(Arrays.equals(passwordField1.getPassword(), passwordField2.getPassword())){
-            String password = new String(passwordField2.getPassword());
+        if(Arrays.equals(passwordField2.getPassword(), passwordField1.getPassword())){
+            String password = new String(passwordField1.getPassword());
             
                 AccountData accountData = new AccountData(0, username, firstName, lastName, password, role);
                 boolean isAccountCreated = AuthSystem.registerAccount(accountData);
                 parentFrame.showLogin();
-                
+                clearForm();
         } else {
             // Handle password mismatch
             System.out.println("Passwords do not match.");
         }
     }
     
-    
+    private void clearForm(){
+        usernameField.setText("");
+        firstNameField.setText("");
+        lastNameField.setText("");
+        passwordField2.setText("");
+        passwordField1.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBTN;

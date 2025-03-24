@@ -11,11 +11,11 @@ public class CenterPanelManager extends JPanel {
     public CenterPanelManager() {
         cardLayout = new CardLayout();
         setOpaque(false);
-        setBackground(new Color(0, 0, 0, 0));
+        setBackground(new Color(0, 0, 0, 0.5f));
 
         contentPanel = new JPanel(cardLayout);
         contentPanel.setOpaque(false);
-        contentPanel.setBackground(new Color(0, 0, 0, 0));
+        contentPanel.setBackground(new Color(0, 0, 0, 0.5f));
         setLayout(new BorderLayout());
         add(contentPanel, BorderLayout.CENTER);
                 
@@ -30,6 +30,5 @@ public class CenterPanelManager extends JPanel {
 
     public void showPanel(String panelName) {
         cardLayout.show(contentPanel, panelName);
-        System.out.println("tite");
     }
 }

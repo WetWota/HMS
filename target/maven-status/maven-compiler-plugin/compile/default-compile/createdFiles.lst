@@ -1,10 +1,10 @@
 project\hms\panels\SignupPanel$1.class
+project\hms\panels\Background.class
 project\hms\panels\SignupPanel$2.class
 project\hms\panels\SignupPanel$5.class
 project\hms\panels\LoginPanel$4.class
 project\hms\models\BookingData.class
 project\hms\panels\SignupPanel$6.class
-Background.class
 project\hms\panels\BookingPanel.class
 project\hms\panels\SignupPanel$3.class
 project\hms\panels\SignupPanel.class
@@ -12,3 +12,4 @@ project\hms\panels\SignupPanel$7.class
 project\hms\panels\BookingPanel$1.class
 project\hms\services\BookingService.class
 project\hms\panels\SignupPanel$4.class
+project\hms\panels\StaffRecord$7.class

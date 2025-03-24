@@ -11,7 +11,7 @@ public class StaffRecord extends javax.swing.JPanel {
     public StaffRecord() {
         initComponents();
         setPreferredSize(new Dimension(900, 650));
-        setBackground(new Color(0, 0, 0, 0));
+        setBackground(new Color(0, 0, 0, 0.2f));
         staffIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameField.requestFocus();

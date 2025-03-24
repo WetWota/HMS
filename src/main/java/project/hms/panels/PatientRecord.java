@@ -12,7 +12,7 @@ public class PatientRecord extends javax.swing.JPanel {
     public PatientRecord() {
         initComponents();
         setPreferredSize(new Dimension(900, 650));
-        setBackground(new Color(0, 0, 0, 0));
+        setBackground(new Color(0, 0, 0, 0.2f));
         patientIdField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameField.requestFocus();
