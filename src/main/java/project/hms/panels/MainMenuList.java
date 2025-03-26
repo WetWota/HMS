@@ -4,51 +4,54 @@ import javax.swing.*;
 import java.awt.*;
 import project.hms.MainFrame;
 
-public class MainMenuList extends JPanel{
+public class MainMenuList extends JPanel {
     private final JButton[] buttons;
     private DashboardPanel dashboardPanel;
 
     public MainMenuList() {
-        
-        int numberOfButtons = 5;
-        buttons = new JButton[numberOfButtons];
-
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttons[0] = new JButton("Patient records");        
-        buttons[1] = new JButton("Booking");
-        buttons[2] = new JButton("Schedule");
-        buttons[3] = new JButton("Staff record");
-        buttons[4] = new JButton("Logout");
-        
-        buttons[0].addActionListener(e -> dashboardPanel.switchPanel("PatientRecords"));
-        buttons[1].addActionListener(e -> dashboardPanel.switchPanel("Booking"));
-        /*
-        buttons[2].addActionListener(e -> dashboardPanel.switchPanel("Schedule"));
-*/
-        buttons[3].addActionListener(e -> dashboardPanel.switchPanel("StaffRecords"));
-        
+
+        buttons = new JButton[]{
+            createStyledButton("Patient Records"),
+            createStyledButton("Booking"),
+            createStyledButton("Schedule"),
+            createStyledButton("Staff Record"),
+            createStyledButton("Logout")
+        };
+
+        buttons[0].addActionListener(e -> switchPanel("PatientRecords"));
+        buttons[1].addActionListener(e -> switchPanel("Booking"));
+        buttons[2].addActionListener(e -> switchPanel("Schedule"));
+        buttons[3].addActionListener(e -> switchPanel("StaffRecords"));
         buttons[4].addActionListener(e -> logout());
-        
-        for (int i = 0; i < numberOfButtons; i++) {
-            buttons[i].setAlignmentX(Component.CENTER_ALIGNMENT);
-            this.add(buttons[i]);
-            this.add(Box.createRigidArea(new Dimension(0, 10)));
-            setButtonSize(buttons[i], 200, 40);
+
+        for (JButton button : buttons) {
+            this.add(button);
+            this.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing between buttons
         }
     }
-    
-    
-    public void setButtonSize(JButton button, int width, int height) {
-        button.setPreferredSize(new java.awt.Dimension(width, height));
-        button.setMinimumSize(new java.awt.Dimension(width, height));
-        button.setMaximumSize(new java.awt.Dimension(width, height));
+
+    private JButton createStyledButton(String text) {
+        JButton button = new JButton(text);
+        button.setAlignmentX(Component.CENTER_ALIGNMENT);
+        button.setPreferredSize(new Dimension(200, 40));
+        button.setMinimumSize(new Dimension(200, 40));
+        button.setMaximumSize(new Dimension(200, 40));
+
+        button.setBackground(new Color(50, 50, 50));
+        button.setForeground(Color.WHITE);
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createLineBorder(new Color(100, 100, 100)));
+        button.setFont(new Font("Arial", Font.BOLD, 14));
+
+        return button;
     }
-    
+
     public void setDashboardPanel(DashboardPanel dashboardPanel) {
         this.dashboardPanel = dashboardPanel;
     }
-    
+
     private void switchPanel(String panelName) {
         if (dashboardPanel != null) {
             dashboardPanel.switchPanel(panelName);
@@ -56,13 +59,11 @@ public class MainMenuList extends JPanel{
             System.err.println("ERROR: dashboardPanel is NULL! Set it using setDashboardPanel().");
         }
     }
-    
-    private void logout(){
+
+    private void logout() {
         MainFrame mainFrame = (MainFrame) SwingUtilities.getWindowAncestor(this);
         if (mainFrame != null) {
             mainFrame.showLogin();
         }
     }
-    
-    
 }

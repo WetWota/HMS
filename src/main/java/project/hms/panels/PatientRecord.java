@@ -68,41 +68,62 @@ public class PatientRecord extends javax.swing.JPanel {
         setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Patient ID");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Name");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sex");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Address");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact No");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Blood Group");
 
+        patientIdField.setBackground(new java.awt.Color(102, 102, 102));
         patientIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        patientIdField.setForeground(new java.awt.Color(255, 255, 255));
+        patientIdField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        nameField.setBackground(new java.awt.Color(102, 102, 102));
         nameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
+        nameField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        sexField.setBackground(new java.awt.Color(102, 102, 102));
         sexField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sexField.setForeground(new java.awt.Color(255, 255, 255));
+        sexField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        addressField.setBackground(new java.awt.Color(102, 102, 102));
         addressField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addressField.setForeground(new java.awt.Color(255, 255, 255));
+        addressField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        contactNumField.setBackground(new java.awt.Color(102, 102, 102));
         contactNumField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumField.setForeground(new java.awt.Color(255, 255, 255));
+        contactNumField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        bloodGroupField.setBackground(new java.awt.Color(102, 102, 102));
         bloodGroupField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        bloodGroupField.setForeground(new java.awt.Color(255, 255, 255));
+        bloodGroupField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        searchPatientBTN.setBackground(new java.awt.Color(102, 102, 102));
+        searchPatientBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchPatientBTN.setForeground(new java.awt.Color(255, 255, 255));
         searchPatientBTN.setText("Search");
         searchPatientBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,14 +131,23 @@ public class PatientRecord extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(102, 102, 102));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Add");
 
+        jButton2.setBackground(new java.awt.Color(102, 102, 102));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Delete");
 
+        searchPatientIdField.setBackground(new java.awt.Color(102, 102, 102));
         searchPatientIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchPatientIdField.setForeground(new java.awt.Color(255, 255, 255));
+        searchPatientIdField.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Search by ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -63,48 +63,72 @@ public class StaffRecord extends javax.swing.JPanel {
         searchBTN = new javax.swing.JToggleButton();
         addStaffBTN = new javax.swing.JButton();
 
+        staffIdField.setBackground(new java.awt.Color(102, 102, 102));
         staffIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        staffIdField.setForeground(new java.awt.Color(255, 255, 255));
+        staffIdField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        nameField.setBackground(new java.awt.Color(102, 102, 102));
         nameField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
+        nameField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        sexField.setBackground(new java.awt.Color(102, 102, 102));
         sexField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        sexField.setForeground(new java.awt.Color(255, 255, 255));
+        sexField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        positionField.setBackground(new java.awt.Color(102, 102, 102));
         positionField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        positionField.setForeground(new java.awt.Color(255, 255, 255));
+        positionField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        contactNumField.setBackground(new java.awt.Color(102, 102, 102));
         contactNumField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        contactNumField.setForeground(new java.awt.Color(255, 255, 255));
+        contactNumField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        emailField.setBackground(new java.awt.Color(102, 102, 102));
         emailField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        emailField.setForeground(new java.awt.Color(255, 255, 255));
+        emailField.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Staff ID");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Name");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sex");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Position");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact No");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email");
 
+        searchStaffIdField.setBackground(new java.awt.Color(102, 102, 102));
         searchStaffIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchStaffIdField.setForeground(new java.awt.Color(255, 255, 255));
+        searchStaffIdField.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Search by ID");
 
+        searchBTN.setBackground(new java.awt.Color(102, 102, 102));
+        searchBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchBTN.setForeground(new java.awt.Color(255, 255, 255));
         searchBTN.setText("Search");
         searchBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +136,9 @@ public class StaffRecord extends javax.swing.JPanel {
             }
         });
 
+        addStaffBTN.setBackground(new java.awt.Color(102, 102, 102));
+        addStaffBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addStaffBTN.setForeground(new java.awt.Color(255, 255, 255));
         addStaffBTN.setText("Add");
         addStaffBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

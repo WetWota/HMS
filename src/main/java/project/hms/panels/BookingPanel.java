@@ -49,9 +49,12 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         textArea = new javax.swing.JTextArea();
 
         usernameLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        usernameLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        usernameLabel2.setForeground(new java.awt.Color(255, 255, 255));
         usernameLabel2.setText("Appointment Sched:");
 
+        signupBTN.setBackground(new java.awt.Color(102, 102, 102));
+        signupBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        signupBTN.setForeground(new java.awt.Color(255, 255, 255));
         signupBTN.setText("Book");
         signupBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,21 +62,70 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
             }
         });
 
+        staffIdField.setBackground(new java.awt.Color(102, 102, 102));
+        staffIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        staffIdField.setForeground(new java.awt.Color(255, 255, 255));
+        staffIdField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        staffIdField.setCaretColor(new java.awt.Color(255, 255, 255));
+
         usernameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        usernameLabel.setForeground(new java.awt.Color(0, 0, 0));
+        usernameLabel.setForeground(new java.awt.Color(255, 255, 255));
         usernameLabel.setText("Staff ID:");
 
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        passwordLabel.setForeground(new java.awt.Color(0, 0, 0));
+        passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
         passwordLabel.setText("status:");
 
         usernameLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        usernameLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        usernameLabel1.setForeground(new java.awt.Color(255, 255, 255));
         usernameLabel1.setText("Patient ID:");
 
+        patientIdField.setBackground(new java.awt.Color(102, 102, 102));
+        patientIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        patientIdField.setForeground(new java.awt.Color(255, 255, 255));
+        patientIdField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        patientIdField.setCaretColor(new java.awt.Color(255, 255, 255));
+        patientIdField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        monthField.setBackground(new java.awt.Color(102, 102, 102));
+        monthField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        monthField.setForeground(new java.awt.Color(255, 255, 255));
+        monthField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        monthField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        dayField.setBackground(new java.awt.Color(102, 102, 102));
+        dayField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        dayField.setForeground(new java.awt.Color(255, 255, 255));
+        dayField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dayField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        yearField.setBackground(new java.awt.Color(102, 102, 102));
+        yearField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        yearField.setForeground(new java.awt.Color(255, 255, 255));
+        yearField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        yearField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        hourField.setBackground(new java.awt.Color(102, 102, 102));
+        hourField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        hourField.setForeground(new java.awt.Color(255, 255, 255));
+        hourField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        hourField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        statusField.setBackground(new java.awt.Color(102, 102, 102));
+        statusField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        statusField.setForeground(new java.awt.Color(255, 255, 255));
+        statusField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        statusField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(new java.awt.Color(102, 102, 102));
+
+        textArea.setBackground(new java.awt.Color(50, 50, 50));
         textArea.setColumns(20);
         textArea.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textArea.setForeground(new java.awt.Color(255, 255, 255));
         textArea.setRows(5);
+        textArea.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.black));
+        textArea.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(textArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -87,10 +139,9 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
                                 .addComponent(signupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(176, 176, 176)))
-                        .addContainerGap(53, Short.MAX_VALUE))
+                        .addContainerGap(127, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usernameLabel)
@@ -141,7 +192,7 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
                 .addComponent(signupBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

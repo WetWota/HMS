@@ -8,9 +8,11 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import project.hms.models.BookingData;
+import project.hms.utils.SessionManager;
 
 public class BookingService {
     private static final String CSV_FILE = Paths.get("csv", "bookingData.csv").toString();
+    private static final SessionManager sessionManager = new SessionManager();
     
     public BookingData searchSched(int searchId){
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
@@ -74,7 +76,9 @@ public class BookingService {
                 String.valueOf(bookingData.getStaffID()),
                 String.valueOf(bookingData.getAppointmentDate()),
                 String.valueOf(bookingData.getAppointmentTime()),
-                bookingData.getStatus()
+                bookingData.getStatus(),
+                SessionManager.getUsername()
+                
             };
             System.out.println("Book");
 
