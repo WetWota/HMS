@@ -83,7 +83,7 @@ public class SchedulePanel extends javax.swing.JPanel {
         bookIdField.setBackground(new java.awt.Color(102, 102, 102));
         bookIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         bookIdField.setForeground(new java.awt.Color(255, 255, 255));
-        bookIdField.setText("Booking ID");
+        bookIdField.setToolTipText("Booking ID:");
         bookIdField.setCaretColor(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -158,7 +158,6 @@ public class SchedulePanel extends javax.swing.JPanel {
         patientInfoLabel.setText("ID: " + patientId + " | Name: " + patientName);
         staffInfoLabel.setText("ID: " + staffId + " | Name: " + staffName + " | Position: " + staffPosition );
         appointmentLabel.setText(dateTime);
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -60,8 +60,8 @@ public class PatientRecord extends javax.swing.JPanel {
         contactNumField = new javax.swing.JTextField();
         bloodGroupField = new javax.swing.JTextField();
         searchPatientBTN = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        addBTN = new javax.swing.JButton();
+        deleteBTN = new javax.swing.JButton();
         searchPatientIdField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
@@ -125,21 +125,29 @@ public class PatientRecord extends javax.swing.JPanel {
         searchPatientBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         searchPatientBTN.setForeground(new java.awt.Color(255, 255, 255));
         searchPatientBTN.setText("Search");
+        searchPatientBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, java.awt.Color.darkGray));
         searchPatientBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchPatientBTNActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add");
+        addBTN.setBackground(new java.awt.Color(102, 102, 102));
+        addBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addBTN.setForeground(new java.awt.Color(255, 255, 255));
+        addBTN.setText("Add");
+        addBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, java.awt.Color.darkGray));
+        addBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBTNActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Delete");
+        deleteBTN.setBackground(new java.awt.Color(102, 102, 102));
+        deleteBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBTN.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBTN.setText("Delete");
+        deleteBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, java.awt.Color.darkGray));
 
         searchPatientIdField.setBackground(new java.awt.Color(102, 102, 102));
         searchPatientIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -180,8 +188,8 @@ public class PatientRecord extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(329, 329, 329)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                            .addComponent(addBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -192,7 +200,7 @@ public class PatientRecord extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(searchPatientBTN)))
+                        .addComponent(searchPatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,9 +236,9 @@ public class PatientRecord extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bloodGroupField))
                 .addGap(41, 41, 41)
-                .addComponent(jButton1)
+                .addComponent(addBTN)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(deleteBTN)
                 .addGap(85, 85, 85))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -238,6 +246,10 @@ public class PatientRecord extends javax.swing.JPanel {
     private void searchPatientBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPatientBTNActionPerformed
         handleSearch();
     }//GEN-LAST:event_searchPatientBTNActionPerformed
+
+    private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
+        
+    }//GEN-LAST:event_addBTNActionPerformed
 
     
     
@@ -262,11 +274,11 @@ public class PatientRecord extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBTN;
     private javax.swing.JTextField addressField;
     private javax.swing.JTextField bloodGroupField;
     private javax.swing.JTextField contactNumField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton deleteBTN;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

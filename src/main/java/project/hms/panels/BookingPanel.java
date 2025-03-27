@@ -24,6 +24,10 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         initComponents();
         setPreferredSize(new Dimension(900, 650));
         setBackground(new Color(0, 0, 0, 0.2f));
+        monthField.setText("mm");
+        dayField.setText("dd");
+        yearField.setText("yyyy");
+        hourField.setText("hh");
     }
 
     /**
@@ -92,12 +96,22 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         monthField.setForeground(new java.awt.Color(255, 255, 255));
         monthField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         monthField.setCaretColor(new java.awt.Color(255, 255, 255));
+        monthField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                monthFieldFocusGained(evt);
+            }
+        });
 
         dayField.setBackground(new java.awt.Color(102, 102, 102));
         dayField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         dayField.setForeground(new java.awt.Color(255, 255, 255));
         dayField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         dayField.setCaretColor(new java.awt.Color(255, 255, 255));
+        dayField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dayFieldFocusGained(evt);
+            }
+        });
 
         yearField.setBackground(new java.awt.Color(102, 102, 102));
         yearField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -110,6 +124,11 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         hourField.setForeground(new java.awt.Color(255, 255, 255));
         hourField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         hourField.setCaretColor(new java.awt.Color(255, 255, 255));
+        hourField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hourFieldActionPerformed(evt);
+            }
+        });
 
         statusField.setBackground(new java.awt.Color(102, 102, 102));
         statusField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -141,27 +160,28 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(signupBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(176, 176, 176)))
-                        .addContainerGap(127, Short.MAX_VALUE))
+                        .addContainerGap(175, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(usernameLabel)
                             .addComponent(usernameLabel1)
                             .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(usernameLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(staffIdField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(staffIdField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(patientIdField)
+                                .addComponent(statusField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(monthField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(dayField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(patientIdField)
-                            .addComponent(statusField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36))))
+                                .addComponent(dayField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(118, 118, 118))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,6 +219,18 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
     private void signupBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupBTNActionPerformed
         handleBook();
     }//GEN-LAST:event_signupBTNActionPerformed
+
+    private void hourFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hourFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hourFieldActionPerformed
+
+    private void monthFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_monthFieldFocusGained
+        monthField.setText("");
+    }//GEN-LAST:event_monthFieldFocusGained
+
+    private void dayFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dayFieldFocusGained
+        dayField.setText("");
+    }//GEN-LAST:event_dayFieldFocusGained
     private void handleBook(){
         int patientID = Integer.parseInt(patientIdField.getText().trim());
         int staffID = Integer.parseInt(staffIdField.getText().trim());
@@ -212,7 +244,7 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         LocalTime time = LocalTime.parse(formattedTime);
         String status = statusField.getText();
         String handler = SessionManager.getUsername();
-        BookingData bookingData = new BookingData(0, patientID, staffID, date, time, status, handler);
+        BookingData bookingData = new BookingData(0, patientID, staffID, date, time, status, handler, LocalDate.now(), LocalTime.now());
         boolean bookAppointment = bookingService.BookAppointment(bookingData);
         clearField();
         
@@ -228,10 +260,10 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
     private void clearField(){
         patientIdField.setText("");
         staffIdField.setText("");
-        monthField.setText("");
-        dayField.setText("");
-        yearField.setText("");
-        hourField.setText("");
+        monthField.setText("mm");
+        dayField.setText("dd");
+        yearField.setText("yyyy");
+        hourField.setText("hh");
         statusField.setText("");
     }
 
