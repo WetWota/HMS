@@ -1,6 +1,7 @@
 package project.hms.panels;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import project.hms.services.PatientRecordService;
 import project.hms.services.StaffRecordService;
 import project.hms.services.BookingService;
@@ -16,6 +17,7 @@ public class SchedulePanel extends javax.swing.JPanel {
     
     public SchedulePanel() {
         initComponents();
+        setPreferredSize(new Dimension(900, 650));
         setBackground(new Color(0, 0, 0, 0.2f));
     }
 
@@ -32,12 +34,12 @@ public class SchedulePanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        creationDateLabel = new javax.swing.JLabel();
-        patientInfoLabel = new javax.swing.JLabel();
-        staffInfoLabel = new javax.swing.JLabel();
-        appointmentLabel = new javax.swing.JLabel();
         searchBTN = new javax.swing.JButton();
         bookIdField = new javax.swing.JTextField();
+        patientInfoField = new javax.swing.JTextField();
+        creationField = new javax.swing.JTextField();
+        staffInfoField = new javax.swing.JTextField();
+        appointmentField = new javax.swing.JTextField();
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -55,22 +57,6 @@ public class SchedulePanel extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Appointed at:");
 
-        creationDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        creationDateLabel.setForeground(new java.awt.Color(255, 255, 255));
-        creationDateLabel.setText("date");
-
-        patientInfoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        patientInfoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        patientInfoLabel.setText("patient");
-
-        staffInfoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        staffInfoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        staffInfoLabel.setText("staff");
-
-        appointmentLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        appointmentLabel.setForeground(new java.awt.Color(255, 255, 255));
-        appointmentLabel.setText("datetime");
-
         searchBTN.setBackground(new java.awt.Color(102, 102, 102));
         searchBTN.setForeground(new java.awt.Color(255, 255, 255));
         searchBTN.setText("Search");
@@ -86,55 +72,78 @@ public class SchedulePanel extends javax.swing.JPanel {
         bookIdField.setToolTipText("Booking ID:");
         bookIdField.setCaretColor(new java.awt.Color(255, 255, 255));
 
+        patientInfoField.setBackground(new java.awt.Color(102, 102, 102));
+        patientInfoField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        patientInfoField.setForeground(new java.awt.Color(255, 255, 255));
+        patientInfoField.setToolTipText("Booking ID:");
+        patientInfoField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        creationField.setBackground(new java.awt.Color(102, 102, 102));
+        creationField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        creationField.setForeground(new java.awt.Color(255, 255, 255));
+        creationField.setToolTipText("Booking ID:");
+        creationField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        staffInfoField.setBackground(new java.awt.Color(102, 102, 102));
+        staffInfoField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        staffInfoField.setForeground(new java.awt.Color(255, 255, 255));
+        staffInfoField.setToolTipText("Booking ID:");
+        staffInfoField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        appointmentField.setBackground(new java.awt.Color(102, 102, 102));
+        appointmentField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        appointmentField.setForeground(new java.awt.Color(255, 255, 255));
+        appointmentField.setToolTipText("Booking ID:");
+        appointmentField.setCaretColor(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(22, 22, 22)
                         .addComponent(bookIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchBTN)
-                    .addComponent(appointmentLabel)
-                    .addComponent(staffInfoLabel)
-                    .addComponent(patientInfoLabel)
-                    .addComponent(creationDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(312, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(appointmentField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+                        .addComponent(staffInfoField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(patientInfoField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(creationField, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(creationDateLabel))
+                    .addComponent(creationField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(patientInfoLabel))
+                    .addComponent(patientInfoField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(staffInfoLabel))
+                    .addComponent(staffInfoField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(appointmentLabel))
-                .addContainerGap(95, Short.MAX_VALUE))
+                    .addComponent(appointmentField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,24 +161,29 @@ public class SchedulePanel extends javax.swing.JPanel {
         String patientName = patientData.getName();
         String staffName = staffData.getName();
         String staffPosition = staffData.getPosition();
-        String date = String.valueOf(bookingData.getAppointmentDate());
-        String time = String.valueOf(bookingData.getAppointmentTime());
-        String dateTime = date + " | " + time;
-        patientInfoLabel.setText("ID: " + patientId + " | Name: " + patientName);
-        staffInfoLabel.setText("ID: " + staffId + " | Name: " + staffName + " | Position: " + staffPosition );
-        appointmentLabel.setText(dateTime);
+        String creationDate = String.valueOf(bookingData.getAppointmentDate());
+        String creationTime = String.valueOf(bookingData.getAppointmentTime());
+        String appointmentDate = String.valueOf(bookingData.getAppointmentDate());
+        String appointmentTime = String.valueOf(bookingData.getAppointmentTime());
+        String creationDateTime = creationDate + " | " + creationTime;
+        String dateTime = appointmentDate + " | " + appointmentTime;
+        
+        creationField.setText(creationDateTime);
+        patientInfoField.setText("ID: " + patientId + " | Name: " + patientName);
+        staffInfoField.setText("ID: " + staffId + " | Name: " + staffName + " | Position: " + staffPosition );
+        appointmentField.setText(dateTime);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel appointmentLabel;
+    private javax.swing.JTextField appointmentField;
     private javax.swing.JTextField bookIdField;
-    private javax.swing.JLabel creationDateLabel;
+    private javax.swing.JTextField creationField;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel patientInfoLabel;
+    private javax.swing.JTextField patientInfoField;
     private javax.swing.JButton searchBTN;
-    private javax.swing.JLabel staffInfoLabel;
+    private javax.swing.JTextField staffInfoField;
     // End of variables declaration//GEN-END:variables
 }

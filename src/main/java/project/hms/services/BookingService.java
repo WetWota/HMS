@@ -16,6 +16,7 @@ public class BookingService {
     private static final SessionManager sessionManager = new SessionManager();
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
     private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("H:mm");
+    
     public BookingData searchSched(int searchId){
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] nextLine;
