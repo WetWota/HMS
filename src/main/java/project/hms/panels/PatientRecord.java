@@ -257,8 +257,15 @@ public class PatientRecord extends javax.swing.JPanel {
     }//GEN-LAST:event_addBTNActionPerformed
 
     private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
-        handleDelete();
-        clearTextField();
+        int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
+        PatientData patientData = patientRecordService.searchPatientRecord(patientId);
+        if(patientData.getPatientID() == 0){
+            clearTextField();
+            patientIdField.setText("No existing record");
+        } else {
+            handleDelete();
+            clearTextField();
+        }
     }//GEN-LAST:event_deleteBTNActionPerformed
 
     
@@ -266,8 +273,9 @@ public class PatientRecord extends javax.swing.JPanel {
     private void handleSearch(){
         int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
         PatientData patientData = patientRecordService.searchPatientRecord(patientId);
-        if(patientData.getName().equals("NULL")){
-            handleNull();
+        if(patientData.getPatientID() == 0){
+            clearTextField();
+            patientIdField.setText("No existing record");
         } else {
             patientIdField.setText(String.valueOf(patientData.getPatientID()));
             nameField.setText(patientData.getName());
@@ -298,15 +306,7 @@ public class PatientRecord extends javax.swing.JPanel {
         int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
         patientRecordService.deletePatientData(patientId);
         searchPatientIdField.setText("Patient Deleted!");
-    }
-    
-    private void handleNull(){
-        patientIdField.setText("DELETED");
-        nameField.setText("DELETED");
-        sexField.setText("DELETED");
-        addressField.setText("DELETED");
-        contactNumField.setText("DELETED");
-        bloodGroupField.setText("DELETED");
+        
     }
     
     private void clearTextField(){

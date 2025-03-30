@@ -92,21 +92,14 @@ public class PatientRecordService {
         List<String[]> updatedRows = new ArrayList<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
-            String[] header = reader.readNext();
-            if (header != null) {
-                updatedRows.add(header); // Keep header
-            }
-
+            
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
                 if (Integer.parseInt(nextLine[0]) == patientID) {
-                    nextLine[1] = "NULL";
-                    nextLine[2] = "NULL";
-                    nextLine[3] = "NULL";
-                    nextLine[4] = "NULL";
-                    nextLine[5] = "NULL";
+                    updatedRows.remove(nextLine);
+                } else {
+                    updatedRows.add(nextLine);
                 }
-                updatedRows.add(nextLine);
             }
         } catch (Exception e) {
             e.printStackTrace();
