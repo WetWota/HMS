@@ -1,4 +1,3 @@
-
 package project.hms.services;
 
 import com.opencsv.CSVReader;
@@ -6,6 +5,8 @@ import com.opencsv.CSVWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 import project.hms.models.PatientData;
 
@@ -48,9 +49,30 @@ public class PatientRecordService {
     }
     
     public boolean writePatientRecord(PatientData patientData) {
+        
+        int lastPatientID = 0;
+
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                if (nextLine.length > 0) {
+                    try {
+                        lastPatientID = Integer.parseInt(nextLine[0]);
+                    } catch (NumberFormatException ignored) {
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Increment the last account ID
+        int newPatientID = lastPatientID + 1;
+        
+        
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
             String[] record = {
-                String.valueOf(patientData.getPatientID()),
+                String.valueOf(newPatientID),
                 patientData.getName(),
                 String.valueOf(patientData.getSex()),
                 patientData.getAddress(),
@@ -63,6 +85,37 @@ public class PatientRecordService {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    
+    public void deletePatientData(int patientID) {
+        List<String[]> updatedRows = new ArrayList<>();
+
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
+            String[] header = reader.readNext();
+            if (header != null) {
+                updatedRows.add(header); // Keep header
+            }
+
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                if (Integer.parseInt(nextLine[0]) == patientID) {
+                    nextLine[1] = "NULL";
+                    nextLine[2] = "NULL";
+                    nextLine[3] = "NULL";
+                    nextLine[4] = "NULL";
+                    nextLine[5] = "NULL";
+                }
+                updatedRows.add(nextLine);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
+            writer.writeAll(updatedRows);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -2,6 +2,7 @@ package project.hms.panels;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.time.format.DateTimeFormatter;
 import project.hms.services.PatientRecordService;
 import project.hms.services.StaffRecordService;
 import project.hms.services.BookingService;
@@ -161,10 +162,14 @@ public class SchedulePanel extends javax.swing.JPanel {
         String patientName = patientData.getName();
         String staffName = staffData.getName();
         String staffPosition = staffData.getPosition();
-        String creationDate = String.valueOf(bookingData.getAppointmentDate());
-        String creationTime = String.valueOf(bookingData.getAppointmentTime());
-        String appointmentDate = String.valueOf(bookingData.getAppointmentDate());
-        String appointmentTime = String.valueOf(bookingData.getAppointmentTime());
+        
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM:dd:yyyy");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh a");
+
+        String creationDate = bookingData.getCreationDate().format(dateFormatter);
+        String creationTime = bookingData.getCreationTime().format(timeFormatter);
+        String appointmentDate = bookingData.getAppointmentDate().format(dateFormatter);
+        String appointmentTime = bookingData.getAppointmentTime().format(timeFormatter);
         String creationDateTime = creationDate + " | " + creationTime;
         String dateTime = appointmentDate + " | " + appointmentTime;
         

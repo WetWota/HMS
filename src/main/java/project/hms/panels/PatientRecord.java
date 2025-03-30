@@ -148,6 +148,11 @@ public class PatientRecord extends javax.swing.JPanel {
         deleteBTN.setForeground(new java.awt.Color(255, 255, 255));
         deleteBTN.setText("Delete");
         deleteBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, java.awt.Color.darkGray));
+        deleteBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBTNActionPerformed(evt);
+            }
+        });
 
         searchPatientIdField.setBackground(new java.awt.Color(102, 102, 102));
         searchPatientIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -156,14 +161,14 @@ public class PatientRecord extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Search by ID");
+        jLabel7.setText("Enter ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,32 +191,33 @@ public class PatientRecord extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloodGroupField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(329, 329, 329)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deleteBTN, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(addBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(381, 381, 381)
+                        .addComponent(addBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(patientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(searchPatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchPatientBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deleteBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(patientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchPatientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchPatientBTN)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteBTN))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(patientIdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,11 +241,9 @@ public class PatientRecord extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bloodGroupField))
-                .addGap(41, 41, 41)
+                .addGap(31, 31, 31)
                 .addComponent(addBTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deleteBTN)
-                .addGap(85, 85, 85))
+                .addGap(111, 111, 111))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,20 +252,61 @@ public class PatientRecord extends javax.swing.JPanel {
     }//GEN-LAST:event_searchPatientBTNActionPerformed
 
     private void addBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBTNActionPerformed
-        
+        handleAdd();
+        clearTextField();
     }//GEN-LAST:event_addBTNActionPerformed
+
+    private void deleteBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBTNActionPerformed
+        handleDelete();
+        clearTextField();
+    }//GEN-LAST:event_deleteBTNActionPerformed
 
     
     
     private void handleSearch(){
         int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
         PatientData patientData = patientRecordService.searchPatientRecord(patientId);
-        patientIdField.setText(String.valueOf(patientData.getPatientID()));
-        nameField.setText(patientData.getName());
-        sexField.setText(String.valueOf(patientData.getSex()));
-        addressField.setText(patientData.getAddress());
-        contactNumField.setText(patientData.getContactNum());
-        bloodGroupField.setText(patientData.getBloodGroup());
+        if(patientData.getName().equals("NULL")){
+            handleNull();
+        } else {
+            patientIdField.setText(String.valueOf(patientData.getPatientID()));
+            nameField.setText(patientData.getName());
+            sexField.setText(String.valueOf(patientData.getSex()));
+            addressField.setText(patientData.getAddress());
+            contactNumField.setText(patientData.getContactNum());
+            bloodGroupField.setText(patientData.getBloodGroup());
+            searchPatientIdField.setText("");
+        }
+    }
+    
+    private void handleAdd(){
+        String name = nameField.getText();
+        char sex = sexField.getText().charAt(0);
+        String address = addressField.getText();
+        String contactNum = contactNumField.getText();
+        String bloodGroup = String.valueOf(bloodGroupField.getText().charAt(0));
+        
+        PatientData patientData = new PatientData(0, name, sex, address, contactNum, bloodGroup);
+        boolean addPatientData = patientRecordService.writePatientRecord(patientData);
+        if(addPatientData){
+            searchPatientIdField.setText("Patient Recorded!");
+        }
+        
+    }
+    
+    private void handleDelete(){
+        int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
+        patientRecordService.deletePatientData(patientId);
+        searchPatientIdField.setText("Patient Deleted!");
+    }
+    
+    private void handleNull(){
+        patientIdField.setText("DELETED");
+        nameField.setText("DELETED");
+        sexField.setText("DELETED");
+        addressField.setText("DELETED");
+        contactNumField.setText("DELETED");
+        bloodGroupField.setText("DELETED");
     }
     
     private void clearTextField(){

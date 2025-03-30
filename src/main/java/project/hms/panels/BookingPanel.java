@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import javax.swing.JOptionPane;
 
 
 import project.hms.models.BookingData;
@@ -48,6 +49,7 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         dayField = new javax.swing.JTextField();
         yearField = new javax.swing.JTextField();
         hourField = new javax.swing.JTextField();
+        amPmField = new javax.swing.JTextField();
         statusField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
@@ -118,15 +120,42 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         yearField.setForeground(new java.awt.Color(255, 255, 255));
         yearField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         yearField.setCaretColor(new java.awt.Color(255, 255, 255));
+        yearField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                yearFieldFocusGained(evt);
+            }
+        });
 
         hourField.setBackground(new java.awt.Color(102, 102, 102));
         hourField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hourField.setForeground(new java.awt.Color(255, 255, 255));
         hourField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         hourField.setCaretColor(new java.awt.Color(255, 255, 255));
+        hourField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                hourFieldFocusGained(evt);
+            }
+        });
         hourField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hourFieldActionPerformed(evt);
+            }
+        });
+
+        amPmField.setBackground(new java.awt.Color(102, 102, 102));
+        amPmField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        amPmField.setForeground(new java.awt.Color(255, 255, 255));
+        amPmField.setText("am/pm");
+        amPmField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        amPmField.setCaretColor(new java.awt.Color(255, 255, 255));
+        amPmField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                amPmFieldFocusGained(evt);
+            }
+        });
+        amPmField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amPmFieldActionPerformed(evt);
             }
         });
 
@@ -180,8 +209,10 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(118, 118, 118))))
+                                .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(amPmField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(62, 62, 62))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +234,8 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
                     .addComponent(usernameLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dayField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hourField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amPmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,31 +263,68 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
     private void dayFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dayFieldFocusGained
         dayField.setText("");
     }//GEN-LAST:event_dayFieldFocusGained
-    private void handleBook(){
+
+    private void amPmFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amPmFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_amPmFieldActionPerformed
+
+    private void yearFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_yearFieldFocusGained
+        yearField.setText("");
+    }//GEN-LAST:event_yearFieldFocusGained
+
+    private void hourFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_hourFieldFocusGained
+        hourField.setText("");
+    }//GEN-LAST:event_hourFieldFocusGained
+
+    private void amPmFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_amPmFieldFocusGained
+        amPmField.setText("");
+    }//GEN-LAST:event_amPmFieldFocusGained
+    private void handleBook() {
+    try {
         int patientID = Integer.parseInt(patientIdField.getText().trim());
         int staffID = Integer.parseInt(staffIdField.getText().trim());
         int month = Integer.parseInt(monthField.getText().trim());
         int day = Integer.parseInt(dayField.getText().trim());
         int year = Integer.parseInt(yearField.getText().trim());
         LocalDate date = LocalDate.of(year, month, day);
-        int hour = Integer.parseInt(hourField.getText().trim());
 
-        String formattedTime = String.format("%02d:00", hour);
-        LocalTime time = LocalTime.parse(formattedTime);
-        String status = statusField.getText();
+        int hour = Integer.parseInt(hourField.getText().trim());
+        String amPm = amPmField.getText().trim().toUpperCase();
+        if (hour < 1 || hour > 12) throw new IllegalArgumentException("Hour must be between 1 and 12");
+        if ("PM".equals(amPm) && hour != 12) hour += 12;
+        if ("AM".equals(amPm) && hour == 12) hour = 0;
+
+        LocalTime time = LocalTime.of(hour, 0);
+        String status = statusField.getText().trim();
+        if (status.isEmpty()) status = "Scheduled";
+
         String handler = SessionManager.getUsername();
         BookingData bookingData = new BookingData(0, patientID, staffID, date, time, status, handler, LocalDate.now(), LocalTime.now());
         boolean bookAppointment = bookingService.BookAppointment(bookingData);
         clearField();
-        
+
         PatientData searchPatient = patientRecordService.searchPatientRecord(patientID);
         StaffData searchStaff = staffRecordService.searchStaffRecord(staffID);
+        if (searchPatient == null || searchStaff == null) {
+            JOptionPane.showMessageDialog(this, "Invalid patient or staff ID.", "Lookup Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         textArea.setText("Patient: " + searchPatient.getName() +
-                        "\nStaff: " + searchStaff.getName() +
-                        "\nAppointment at: " + String.valueOf(date) + " " + String.valueOf(time) +
-                        "\nAppointed by: " + handler
+                         "\nStaff: " + searchStaff.getName() +
+                         "\nAppointment at: " + date + " " + time +
+                         "\nAppointed by: " + handler
         );
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Please enter valid numbers.", "Input Error", JOptionPane.ERROR_MESSAGE);
+    } catch (IllegalArgumentException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(), "Input Error", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "An unexpected error occurred.", "Error", JOptionPane.ERROR_MESSAGE);
     }
+}
+
+
     
     private void clearField(){
         patientIdField.setText("");
@@ -265,9 +334,11 @@ private final StaffRecordService staffRecordService = new StaffRecordService();
         yearField.setText("yyyy");
         hourField.setText("hh");
         statusField.setText("");
+        amPmField.setText("am/pm");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField amPmField;
     private javax.swing.JTextField dayField;
     private javax.swing.JTextField hourField;
     private javax.swing.JScrollPane jScrollPane1;

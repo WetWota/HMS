@@ -14,8 +14,9 @@ import project.hms.utils.SessionManager;
 public class BookingService {
     private static final String CSV_FILE = Paths.get("csv", "bookingData.csv").toString();
     private static final SessionManager sessionManager = new SessionManager();
-    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-    private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("H:mm");
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh a");
+
     
     public BookingData searchSched(int searchId){
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
@@ -32,7 +33,7 @@ public class BookingService {
                 String handler = nextLine[6];
                 LocalDate creationDate = LocalDate.parse(nextLine[7], dateFormatter);
                 LocalTime creationTime = LocalTime.parse(nextLine[8], timeFormatter);
-                if(searchId == staffID){
+                if(searchId == bookingID){
                     BookingData bookData = new BookingData(
                             bookingID,
                             patientID,
@@ -81,11 +82,12 @@ public class BookingService {
                 String.valueOf(newBookingID),
                 String.valueOf(bookingData.getPatientID()),
                 String.valueOf(bookingData.getStaffID()),
-                String.valueOf(bookingData.getAppointmentDate()),
-                String.valueOf(bookingData.getAppointmentTime()),
+                bookingData.getAppointmentDate().format(dateFormatter),
+                bookingData.getAppointmentTime().format(timeFormatter),
                 bookingData.getStatus(),
-                SessionManager.getUsername()
-                
+                SessionManager.getUsername(),
+                bookingData.getCreationDate().format(dateFormatter),
+                bookingData.getCreationTime().format(timeFormatter)
             };
             System.out.println("Book");
 
