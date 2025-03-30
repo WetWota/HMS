@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import project.hms.models.BookingData;
 import project.hms.utils.SessionManager;
 
@@ -96,6 +98,32 @@ public class BookingService {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+    
+    public void editSchedule(int bookingID, String status){
+        List<String[]> updatedRows = new ArrayList<>();
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
+            String[] header = reader.readNext();
+            if (header != null) {
+                updatedRows.add(header); // Keep header
+            }
+
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null) {
+                if (Integer.parseInt(nextLine[0]) == bookingID) {
+                    nextLine[5] = status;
+                }
+                updatedRows.add(nextLine);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
+            writer.writeAll(updatedRows);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
