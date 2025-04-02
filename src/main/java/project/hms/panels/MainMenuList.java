@@ -28,7 +28,7 @@ public class MainMenuList extends JPanel {
 
         for (JButton button : buttons) {
             this.add(button);
-            this.add(Box.createRigidArea(new Dimension(0, 10))); // Add spacing between buttons
+            this.add(Box.createRigidArea(new Dimension(0, 10)));
         }
     }
 

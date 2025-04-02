@@ -18,7 +18,7 @@ public class PatientRecordService {
     public PatientData searchPatientRecord(int searchId){
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] nextLine;
-            reader.readNext(); // Skip header row
+            reader.readNext();
 
             while ((nextLine = reader.readNext()) != null) {
                 int patientID = Integer.parseInt(nextLine[0]);
@@ -49,55 +49,63 @@ public class PatientRecordService {
     }
     
     public boolean writePatientRecord(PatientData patientData) {
-        
-        int lastPatientID = 0;
+        List<String[]> updatedRows = new ArrayList<>();
+        List<Integer> idList = new ArrayList<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
                 if (nextLine.length > 0) {
                     try {
-                        lastPatientID = Integer.parseInt(nextLine[0]);
-                    } catch (NumberFormatException ignored) {
-                    }
+                        idList.add(Integer.parseInt(nextLine[0]));
+                    } catch (NumberFormatException ignored) {}
                 }
+                updatedRows.add(nextLine);
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
 
-        // Increment the last account ID
-        int newPatientID = lastPatientID + 1;
-        
-        
-        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE, true))) {
-            String[] record = {
-                String.valueOf(newPatientID),
-                patientData.getName(),
-                String.valueOf(patientData.getSex()),
-                patientData.getAddress(),
-                patientData.getContactNum(),
-                patientData.getBloodGroup()
-            };
+        int newPatientID = 1;
+        for (int i = 0; i < idList.size(); i++) {
+            if (idList.get(i) != newPatientID) {
+                break;
+            }
+            newPatientID++;
+        }
 
-            writer.writeNext(record);
+        String[] record = {
+            String.valueOf(newPatientID),
+            patientData.getName(),
+            String.valueOf(patientData.getSex()),
+            patientData.getAddress(),
+            patientData.getContactNum(),
+            patientData.getBloodGroup()
+        };
+        updatedRows.add(record);
+
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
+            writer.writeAll(updatedRows);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-    
+
     public void deletePatientData(int patientID) {
         List<String[]> updatedRows = new ArrayList<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
+            String[] header = reader.readNext();
+            if (header != null) {
+                updatedRows.add(header);
+            }
             
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
-                if (Integer.parseInt(nextLine[0]) == patientID) {
-                    updatedRows.remove(nextLine);
-                } else {
+                if (Integer.parseInt(nextLine[0]) != patientID) {
                     updatedRows.add(nextLine);
                 }
             }
