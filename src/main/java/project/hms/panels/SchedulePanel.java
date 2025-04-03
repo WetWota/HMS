@@ -44,6 +44,9 @@ public class SchedulePanel extends javax.swing.JPanel {
         statusField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         editBTN = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        deleteDelete = new javax.swing.JButton();
+        clearBTN = new javax.swing.JButton();
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,23 +129,50 @@ public class SchedulePanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Enter ID:");
+
+        deleteDelete.setBackground(new java.awt.Color(102, 102, 102));
+        deleteDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteDelete.setForeground(new java.awt.Color(255, 255, 255));
+        deleteDelete.setText("Delete");
+        deleteDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteDeleteActionPerformed(evt);
+            }
+        });
+
+        clearBTN.setBackground(new java.awt.Color(102, 102, 102));
+        clearBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearBTN.setForeground(new java.awt.Color(255, 255, 255));
+        clearBTN.setText("Clear");
+        clearBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editBTN)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(clearBTN)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editBTN))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(appointmentField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                                 .addComponent(staffInfoField, javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,10 +180,14 @@ public class SchedulePanel extends javax.swing.JPanel {
                                 .addComponent(creationField, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(statusField, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
                         .addComponent(bookIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(searchBTN)))
+                        .addComponent(searchBTN)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteDelete)))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -162,7 +196,9 @@ public class SchedulePanel extends javax.swing.JPanel {
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookIdField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(deleteDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -184,7 +220,9 @@ public class SchedulePanel extends javax.swing.JPanel {
                     .addComponent(statusField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -200,6 +238,15 @@ public class SchedulePanel extends javax.swing.JPanel {
     private void bookIdFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bookIdFieldFocusGained
         bookIdField.setText("");
     }//GEN-LAST:event_bookIdFieldFocusGained
+
+    private void deleteDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDeleteActionPerformed
+        handleDelete();
+        clearField();
+    }//GEN-LAST:event_deleteDeleteActionPerformed
+
+    private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBTNActionPerformed
+        clearField();
+    }//GEN-LAST:event_clearBTNActionPerformed
 
     private void editSched(){
         int searchBookID = Integer.parseInt(bookIdField.getText().trim());
@@ -238,6 +285,12 @@ public class SchedulePanel extends javax.swing.JPanel {
         statusField.setText(status);
     }
     
+    private void handleDelete(){
+        int bookId = Integer.parseInt(bookIdField.getText().trim());
+        patientRecordService.deletePatientData(bookId);
+        bookIdField.setText("Schedule Deleted!");
+    }
+    
     private void clearField(){
         bookIdField.setText("");
         appointmentField.setText("");
@@ -251,13 +304,16 @@ public class SchedulePanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField appointmentField;
     private javax.swing.JTextField bookIdField;
+    private javax.swing.JButton clearBTN;
     private javax.swing.JTextField creationField;
+    private javax.swing.JButton deleteDelete;
     private javax.swing.JButton editBTN;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField patientInfoField;
     private javax.swing.JButton searchBTN;
     private javax.swing.JTextField staffInfoField;

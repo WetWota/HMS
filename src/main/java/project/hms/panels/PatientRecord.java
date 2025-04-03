@@ -64,6 +64,7 @@ public class PatientRecord extends javax.swing.JPanel {
         deleteBTN = new javax.swing.JButton();
         searchPatientIdField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        clearBTN = new javax.swing.JButton();
 
         setToolTipText("");
 
@@ -163,6 +164,17 @@ public class PatientRecord extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Enter ID:");
 
+        clearBTN.setBackground(new java.awt.Color(102, 102, 102));
+        clearBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearBTN.setForeground(new java.awt.Color(255, 255, 255));
+        clearBTN.setText("Clear");
+        clearBTN.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, null, java.awt.Color.darkGray));
+        clearBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,7 +203,9 @@ public class PatientRecord extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bloodGroupField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(381, 381, 381)
+                        .addGap(303, 303, 303)
+                        .addComponent(clearBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(addBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -242,7 +256,9 @@ public class PatientRecord extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bloodGroupField))
                 .addGap(31, 31, 31)
-                .addComponent(addBTN)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBTN)
+                    .addComponent(clearBTN))
                 .addGap(111, 111, 111))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -267,6 +283,10 @@ public class PatientRecord extends javax.swing.JPanel {
             clearTextField();
         }
     }//GEN-LAST:event_deleteBTNActionPerformed
+
+    private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBTNActionPerformed
+        clearTextField();
+    }//GEN-LAST:event_clearBTNActionPerformed
 
     
     
@@ -306,7 +326,6 @@ public class PatientRecord extends javax.swing.JPanel {
         int patientId = Integer.parseInt(searchPatientIdField.getText().trim());
         patientRecordService.deletePatientData(patientId);
         searchPatientIdField.setText("Patient Deleted!");
-        
     }
     
     private void clearTextField(){
@@ -322,6 +341,7 @@ public class PatientRecord extends javax.swing.JPanel {
     private javax.swing.JButton addBTN;
     private javax.swing.JTextField addressField;
     private javax.swing.JTextField bloodGroupField;
+    private javax.swing.JButton clearBTN;
     private javax.swing.JTextField contactNumField;
     private javax.swing.JButton deleteBTN;
     private javax.swing.JLabel jLabel1;

@@ -39,7 +39,7 @@ public class StaffRecord extends javax.swing.JPanel {
         });
         emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStaff();
+                clearText();
             }
         });
     }
@@ -51,6 +51,10 @@ public class StaffRecord extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        searchStaffIdField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        searchBTN = new javax.swing.JToggleButton();
+        deleteBTN = new javax.swing.JButton();
         staffIdField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
         sexField = new javax.swing.JTextField();
@@ -63,11 +67,37 @@ public class StaffRecord extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        searchStaffIdField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        searchBTN = new javax.swing.JToggleButton();
         addStaffBTN = new javax.swing.JButton();
-        deleteBTN = new javax.swing.JButton();
+        clearBTN = new javax.swing.JButton();
+
+        searchStaffIdField.setBackground(new java.awt.Color(102, 102, 102));
+        searchStaffIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchStaffIdField.setForeground(new java.awt.Color(255, 255, 255));
+        searchStaffIdField.setCaretColor(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Enter ID:");
+
+        searchBTN.setBackground(new java.awt.Color(102, 102, 102));
+        searchBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        searchBTN.setForeground(new java.awt.Color(255, 255, 255));
+        searchBTN.setText("Search");
+        searchBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchStaffBTNActionPerformed(evt);
+            }
+        });
+
+        deleteBTN.setBackground(new java.awt.Color(102, 102, 102));
+        deleteBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBTN.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBTN.setText("Delete");
+        deleteBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBTNActionPerformed(evt);
+            }
+        });
 
         staffIdField.setBackground(new java.awt.Color(102, 102, 102));
         staffIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -123,25 +153,6 @@ public class StaffRecord extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email");
 
-        searchStaffIdField.setBackground(new java.awt.Color(102, 102, 102));
-        searchStaffIdField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        searchStaffIdField.setForeground(new java.awt.Color(255, 255, 255));
-        searchStaffIdField.setCaretColor(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Enter ID:");
-
-        searchBTN.setBackground(new java.awt.Color(102, 102, 102));
-        searchBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        searchBTN.setForeground(new java.awt.Color(255, 255, 255));
-        searchBTN.setText("Search");
-        searchBTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchStaffBTNActionPerformed(evt);
-            }
-        });
-
         addStaffBTN.setBackground(new java.awt.Color(102, 102, 102));
         addStaffBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addStaffBTN.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,13 +163,13 @@ public class StaffRecord extends javax.swing.JPanel {
             }
         });
 
-        deleteBTN.setBackground(new java.awt.Color(102, 102, 102));
-        deleteBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        deleteBTN.setForeground(new java.awt.Color(255, 255, 255));
-        deleteBTN.setText("Delete");
-        deleteBTN.addActionListener(new java.awt.event.ActionListener() {
+        clearBTN.setBackground(new java.awt.Color(102, 102, 102));
+        clearBTN.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clearBTN.setForeground(new java.awt.Color(255, 255, 255));
+        clearBTN.setText("Clear");
+        clearBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBTNActionPerformed(evt);
+                clearBTNActionPerformed(evt);
             }
         });
 
@@ -202,7 +213,10 @@ public class StaffRecord extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(deleteBTN))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(addStaffBTN)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(clearBTN)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(addStaffBTN))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -243,7 +257,9 @@ public class StaffRecord extends javax.swing.JPanel {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailField))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addStaffBTN)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addStaffBTN)
+                    .addComponent(clearBTN))
                 .addGap(56, 56, 56))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -263,6 +279,10 @@ public class StaffRecord extends javax.swing.JPanel {
         staffRecordService.deleteStaffRecord(staffId);
         searchStaffIdField.setText("staff Deleted!");
     }//GEN-LAST:event_deleteBTNActionPerformed
+
+    private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBTNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clearBTNActionPerformed
 
     private void handleSearch(){
         int staffId = Integer.parseInt(searchStaffIdField.getText().trim());
@@ -300,6 +320,7 @@ public class StaffRecord extends javax.swing.JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addStaffBTN;
+    private javax.swing.JButton clearBTN;
     private javax.swing.JTextField contactNumField;
     private javax.swing.JButton deleteBTN;
     private javax.swing.JTextField emailField;
