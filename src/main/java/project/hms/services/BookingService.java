@@ -88,34 +88,26 @@ public class BookingService {
             bookingData.getCreationTime().format(timeFormatter)
         };
 
-        // Insert the new record in the correct position
         boolean inserted = false;
         List<String[]> updatedRows = new ArrayList<>();
         
-        // Keep the header
         if (!allRows.isEmpty()) {
             updatedRows.add(allRows.get(0));
         }
         
-        // Insert records in order
         for (int i = 1; i < allRows.size(); i++) {
             String[] row = allRows.get(i);
             int currentId = Integer.parseInt(row[0]);
             
-            // Insert before the first ID that's larger than our new ID
             if (!inserted && currentId > newBookingID) {
                 updatedRows.add(newRecord);
                 inserted = true;
             }
             updatedRows.add(row);
         }
-        
-        // If we haven't inserted yet (new ID is largest), add at end
         if (!inserted) {
             updatedRows.add(newRecord);
         }
-
-        // Write all rows back to file
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
             writer.writeAll(updatedRows);
             return true;
