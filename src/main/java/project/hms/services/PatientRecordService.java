@@ -49,9 +49,10 @@ public class PatientRecordService {
     }
     
     public boolean writePatientRecord(PatientData patientData) {
-        List<String[]> updatedRows = new ArrayList<>();
+        List<String[]> allRows = new ArrayList<>();
         List<Integer> idList = new ArrayList<>();
 
+        // Read all existing rows and collect IDs
         try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE))) {
             String[] nextLine;
             while ((nextLine = reader.readNext()) != null) {
@@ -60,13 +61,14 @@ public class PatientRecordService {
                         idList.add(Integer.parseInt(nextLine[0]));
                     } catch (NumberFormatException ignored) {}
                 }
-                updatedRows.add(nextLine);
+                allRows.add(nextLine);
             }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
 
+        // Find the first available ID
         int newPatientID = 1;
         for (int i = 0; i < idList.size(); i++) {
             if (idList.get(i) != newPatientID) {
@@ -75,7 +77,8 @@ public class PatientRecordService {
             newPatientID++;
         }
 
-        String[] record = {
+        // Create the new record
+        String[] newRecord = {
             String.valueOf(newPatientID),
             patientData.getName(),
             String.valueOf(patientData.getSex()),
@@ -83,8 +86,35 @@ public class PatientRecordService {
             patientData.getContactNum(),
             patientData.getBloodGroup()
         };
-        updatedRows.add(record);
 
+        // Insert the new record in the correct position
+        boolean inserted = false;
+        List<String[]> updatedRows = new ArrayList<>();
+
+        // Keep the header
+        if (!allRows.isEmpty()) {
+            updatedRows.add(allRows.get(0));
+        }
+
+        // Insert records in order
+        for (int i = 1; i < allRows.size(); i++) {
+            String[] row = allRows.get(i);
+            int currentId = Integer.parseInt(row[0]);
+
+            // Insert before the first ID that's larger than our new ID
+            if (!inserted && currentId > newPatientID) {
+                updatedRows.add(newRecord);
+                inserted = true;
+            }
+            updatedRows.add(row);
+        }
+
+        // If we haven't inserted yet (new ID is largest), add at end
+        if (!inserted) {
+            updatedRows.add(newRecord);
+        }
+
+        // Write all rows back to file
         try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_FILE))) {
             writer.writeAll(updatedRows);
             return true;
