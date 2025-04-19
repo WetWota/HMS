@@ -1,8 +1,11 @@
 project\hms\panels\SignupPanel$1.class
 project\hms\panels\StaffRecord$8.class
 project\hms\panels\PatientRecord$7.class
+project\hms\panels\SchedulePanel$6.class
 project\hms\panels\Background.class
 project\hms\panels\SchedulePanel.class
+project\hms\panels\BookingTablePanel.class
+project\hms\panels\BookingTablePanel$2.class
 project\hms\panels\SignupPanel$2.class
 project\hms\panels\SignupPanel$5.class
 project\hms\panels\StaffRecord$9.class
@@ -15,9 +18,11 @@ project\hms\panels\BookingPanel$4.class
 project\hms\panels\BookingPanel.class
 project\hms\panels\SignupPanel$3.class
 project\hms\panels\SignupPanel.class
+project\hms\models\BookingTableModel.class
 project\hms\panels\SignupPanel$7.class
 project\hms\panels\BookingPanel$1.class
 project\hms\panels\BookingPanel$3.class
 project\hms\services\BookingService.class
 project\hms\panels\SignupPanel$4.class
+project\hms\panels\BookingTablePanel$1.class
 project\hms\panels\StaffRecord$7.class

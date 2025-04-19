@@ -64,14 +64,14 @@ public class DashboardPanel extends javax.swing.JPanel {
         CenterPanel.setLayout(CenterPanelLayout);
         CenterPanelLayout.setHorizontalGroup(
             CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         CenterPanelLayout.setVerticalGroup(
             CenterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
 
-        BackgroundPanel.add(CenterPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 570, 470));
+        BackgroundPanel.add(CenterPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 900, 680));
 
         javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
         background1.setLayout(background1Layout);
